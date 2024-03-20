@@ -1,4 +1,8 @@
-mapboxgl.accessToken = "<%= ENV['MAPBOX_ACCESS_KEY'] %>";
+// Api Key
+const apiKeyMetaTag = document.querySelector('meta[name="api_key"]');
+const apiKey = apiKeyMetaTag.getAttribute("content");
+mapboxgl.accessToken = apiKey;
+// End Api Key
 
 navigator.geolocation.getCurrentPosition(succesLocation, errorLocation, {
   enableHighAccuracy: true,
@@ -9,7 +13,7 @@ function succesLocation(position) {
 }
 
 function errorLocation() {
-  setupMap([<%= @user.longitude %>, <%= @user.latitude %>]);
+  setupMap([3.16, 50.72]);
 }
 
 function setupMap(center) {
@@ -24,7 +28,7 @@ function setupMap(center) {
   map.addControl(nav);
 
   const directions = new MapboxDirections({
-    accessToken: mapboxgl.accessToken,
+    accessToken: apiKey,
     unit: "metric",
   });
   map.addControl(directions, "top-left");

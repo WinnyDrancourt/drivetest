@@ -1,7 +1,9 @@
 class ItinerariesController < ApplicationController
-  def index
-  end
+  def index; end
 
-  def show
+  def show; end
+
+  def new
+    @user
   end
 end
