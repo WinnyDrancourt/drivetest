@@ -13,6 +13,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def create
   #  super
   # end
+  def create
+    @user = User.new(user_params)
+    set_coordinates(@user)
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to user_url(@user), notice: 'User was successfully created.' }
+        format.json { render :show, status: :created, location: @user }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -50,6 +64,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, keys: %i[last_name first_name zipcode city])
+  end
+
+  def set_coordinates(user)
+    coordinates = Geocoder.coordinates("#{user.city}, #{user.zipcode}")
+    return unless coordinates.present?
+
+    user.latitude = coordinates[0]
+    user.longitude = coordinates[1]
+  end
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :city, :email, :password, :password_confirmation, :zipcode)
   end
 
   # The path used after sign up.
