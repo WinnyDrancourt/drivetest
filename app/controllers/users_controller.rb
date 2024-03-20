@@ -31,11 +31,11 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def authorize_user!
-    return if current_user == @user
+  # def authorize_user!
+  #  return if current_user == @user
 
-    redirect_to root_path
-  end
+  #  redirect_to root_path
+  # end
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :city, :email, :encrypted_password, :town)
