@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :itineraries
   has_many :likes
-       
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :zipcode, presence: true
