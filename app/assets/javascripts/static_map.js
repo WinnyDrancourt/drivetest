@@ -1,4 +1,8 @@
-mapboxgl.accessToken = "<%= ENV['MAPBOX_ACCESS_KEY'] %>";
+// Api Key
+const apiKeyMetaTag = document.querySelector('meta[name="api_key"]');
+const apiKey = apiKeyMetaTag.getAttribute("content");
+mapboxgl.accessToken = apiKey;
+// End Api Key
 
 const cityForm = document.getElementById("mapForm");
 cityForm.addEventListener("submit", function (event) {
