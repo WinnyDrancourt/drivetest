@@ -9,7 +9,7 @@ function succesLocation(position) {
 }
 
 function errorLocation() {
-  setupMap([2.338715, 48.852969]);
+  setupMap([<%= @user.longitude %>, <%= @user.latitude %>]);
 }
 
 function setupMap(center) {
