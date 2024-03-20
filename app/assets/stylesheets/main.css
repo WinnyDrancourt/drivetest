@@ -1,0 +1,16 @@
+html {
+
+
+    margin: 0;
+    padding: 0;
+    background-color: linear-gradient(0deg, rgba(203,192,185,1) 0%, rgba(255,255,255,1) 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    overflow-x: hidden;
+}
+
+.background-green {
+    background-color: #ABC4AA;
+}
