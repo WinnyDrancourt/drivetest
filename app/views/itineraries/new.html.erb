@@ -1,15 +1,11 @@
-<%= form_with model: [@itineray, @destination] do |f| %>
+<%= form_with model: @itinerary do |f| %>
+
   <div class="field">
     <%= f.label :Titre %><br />
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :Depart %><br />
-    <%= f.text_field :city %>
-  </div>
-
-  <div id="duplicate-1" class="duplid">
-    <%= f.field_for :destinations do |destination_field| %>
+   <div id="duplicate-1" class="duplid">
+    <%= f.fields_for :destinations do |destination_field| %>
       <div class="field ">
         <%= destination_field.label :Etapes, "Etape 1" %><br />
         <%= destination_field.text_field :city %>
