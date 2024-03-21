@@ -1,23 +1,24 @@
 class ItinerariesController < ApplicationController
+  before_action :set_itinerary, only: [:show]
+
   def index
     @all_itineraries = Itinerary.all
   end
 
   def show
+
+    if @itinerary.nil?
+      flash[:alert] = "Itinerary doesn't exist yet!"
+      redirect_to root_path
+      return
+    end
+
     # Setting start date if not set
-    @itinerary = Itinerary.find(params[:id])
-    @start_date = if @itinerary.start_date.nil?
-                    Date.today.strftime('%d-%m-%Y')
-                  else
-                    @itinerary.start_date.strftime('%d-%m-%Y')
-                  end
+    @start_date = @itinerary.start_date ? @itinerary.start_date.strftime('%d-%m-%Y') : Date.today.strftime('%d-%m-%Y')
 
     # Formatting end date
-    @end_date = if @itinerary.end_date.nil?
-                  'Undefined'
-                else
-                  @itinerary.end_date.strftime('%d-%m-%Y')
-                end
+    @end_date = @itinerary.end_date ? @itinerary.end_date.strftime('%d-%m-%Y') : "Undefined"
+
   end
 
   def new
@@ -26,6 +27,7 @@ class ItinerariesController < ApplicationController
   end
 
   def create
+
     @itinerary = @user.itineraries.build(itinerary_params)
     @current_etape = @itinerary.destinations.size + 1
 
@@ -37,6 +39,7 @@ class ItinerariesController < ApplicationController
     else
       render :new
     end
+
   end
 
   def destroy
@@ -47,6 +50,10 @@ class ItinerariesController < ApplicationController
   end
 
   private
+
+  def set_itinerary
+    @itinerary = Itinerary.find_by(id: params[:id])
+  end
 
   def itinerary_params
     params.require(:itinerary).permit(:title, :start_date, :end_date,
