@@ -1,0 +1,47 @@
+<%= form_with do |f| %>
+  <div class="field">
+    <%= f.label :Titre %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :Depart %><br />
+    <%= f.text_field :destination %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Arrivée %>
+    <%= f.text_field :destination %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Etapes %><br />
+    <%= f.text_field :destination %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Note %><br />
+    <%= f.text_field :notes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Date %><br />
+    <%= f.date_field :start_date %>
+  </div>
+
+   <div class="field">
+    <%= f.label :Date %><br />
+    <%= f.date_field :end_date %>
+  </div>
+ 
+  <div class="actions">
+    <%= f.submit "Créer" %>
+  </div>
+<% end %>
+
+
+
+
+<!-- Interactive Map -->
+<div id='map' style='width: 25%; height: 50vh;'></div>
+<%= javascript_include_tag 'map' %>
+<!-- End Interactive Map -->
