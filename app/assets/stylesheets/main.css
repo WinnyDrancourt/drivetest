@@ -1,16 +1,27 @@
 html {
-
-
     margin: 0;
     padding: 0;
-    background-color: linear-gradient(0deg, rgba(203,192,185,1) 0%, rgba(255,255,255,1) 100%);
+
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-repeat:no-repeat;
+    background: linear-gradient(0deg, rgba(203,192,185,1) 0%, rgba(255,255,255,1) 100%);
 
     overflow-x: hidden;
 }
 
+body {
+    min-height: 100vh;
+    background: linear-gradient(0deg, rgba(203,192,185,1) 0%, rgba(255,255,255,1) 100%) !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
 .background-green {
-    background-color: #ABC4AA;
+    background-color: #ABC4AA !important;
 }
