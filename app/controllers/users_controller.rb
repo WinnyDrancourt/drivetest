@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  
   def show
   end
 
@@ -21,9 +21,4 @@ class UsersController < ApplicationController
     end
   end
 
-  # def authorize_user!
-  #  return if current_user == @user
-
-  #  redirect_to root_path
-  # end
 end
