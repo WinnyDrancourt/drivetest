@@ -106,7 +106,19 @@
             </div>
           </div>
         </div>
-      </div>
-    </main>
-  </body>
+    </div>
+
+<p><%@itineraries.each do |i|%></p>
+                
+    <%= i.title %>
+    <% if i.destinations[0] %>
+        <li>Départ: <%= i.destinations[0].city %></li> 
+    <% end %>
+    <% if i.destinations[-1] %>
+        <li>Arrivée: <%= i.destinations[-1].city %></li> 
+    <% end %>
+            
+    <%end%>
+</main>
+</body>
 </html>
