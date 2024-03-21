@@ -20,8 +20,7 @@
     <p><%=i.title%> starting on <%= Date.today%></p>
   <%end%>
 
-  <%i.destinations.each do |d|%>
-    <%=d.city%><br>
-  <%end%>
+  <li>Departure: <%=i.destinations[0].city%></li>
+  <li>Arrival :  <%=i.destinations[-1].city%></li><br>
   <br>
 <%end%>
