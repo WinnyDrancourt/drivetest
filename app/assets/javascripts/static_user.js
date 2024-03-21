@@ -17,10 +17,10 @@ function generateStaticMap(city, containerId) {
   const apiKey = mapboxgl.accessToken;
   const mapWidth = 600;
   const mapHeight = 400;
-  const zoom = 13;
+  const zoom = 14;
 
   // Construct the URL for static map image
-  let url = `https://api.mapbox.com/styles/v1/mapbox/outdoors-v12/static/`;
+  let url = `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v12/static/`;
 
   // If city is coordinates, use them directly
   if (/^-?\d+(\.\d+)?,-?\d+(\.\d+)?$/.test(city)) {
@@ -53,13 +53,3 @@ function displayStaticMap(url, containerId) {
   const mapContainer = document.getElementById(containerId);
   mapContainer.innerHTML = `<img src="${url}" alt="Static Map">`;
 }
-
-const geocoder = new MapboxGeocoder({
-  accessToken: mapboxgl.accessToken,
-  types: "country,region,place,postcode,locality,neighborhood",
-});
-
-geocoder.addTo("#geocoder");
-
-// Get the geocoder results container.
-const results = document.getElementById("result");

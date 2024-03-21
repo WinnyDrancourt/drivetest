@@ -13,15 +13,23 @@
     <%= f.text_field :destination %>
   </div>
 
-  <div class="field">
-    <%= f.label :Etapes %><br />
-    <%= f.text_field :destination %>
-  </div>
+  <div id="duplicate-1" class="duplid">
+    <div class="field ">
+      <%= f.label :Etapes %><br />
+      <%= f.text_field :destination %>
+    </div>
 
-  <div class="field">
-    <%= f.label :Note %><br />
-    <%= f.text_field :notes %>
+    <div class="field">
+      <%= f.label :Note %><br />
+      <%= f.text_field :notes %>
+    </div>
+
+    <div class="field">
+      <%= f.label :Duree %><br />
+      <%= f.number_field :stay_time, in: 1..31, step: 1 %>
+    </div>
   </div>
+  <button id="bt-duplicate">+</button>
 
   <div class="field">
     <%= f.label :Date %><br />
@@ -42,6 +50,7 @@
 
 
 <!-- Interactive Map -->
-<div id='map' style='width: 25%; height: 50vh;'></div>
+<div id='map' style='width: 25vh; height: 25vh;'></div>
 <%= javascript_include_tag 'map' %>
 <!-- End Interactive Map -->
+<%= javascript_include_tag 'duplicate' %>
