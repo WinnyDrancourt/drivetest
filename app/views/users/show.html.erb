@@ -1,11 +1,18 @@
-<h1>Profile</h1>
+<div class="jumbotron background-image-banner d-flex align-items-start ">
+<div class="col-3 card-user">
+<div class="d-flex justify-content-center">
+<%= image_tag("png-clipart-apple-icon-format-icon-person-outline-white-monochrome.png", :class => "img-avatar") %>
+</div>
 <p>First Name : <%=@user.first_name%></p>
 <p>Last Name : <%=@user.last_name%></p>
 <p>E-mail : <%=@user.email%></p>
 <p>City : <%=@user.city%></p>
 <p>Zip Code: <%=@user.zipcode%></p>
+</div>
+</div>
 
-<h2>Roadtrips</h2>
+
+
 <%@user.itineraries.each do |i|%>
   <%if i.start_date%>
     <p><%=i.title%> starting on <%=i.start_date%></p>
