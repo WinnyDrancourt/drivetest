@@ -48,6 +48,7 @@
     <% if i.destinations[-1] %>
         <li>Arrivée: <%= i.destinations[-1].city %></li> 
     <% end %>
+    <%=link_to "Voir Roadtrip", itinerary_path(i)%>
             
     <%end%>
 </main>
