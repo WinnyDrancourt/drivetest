@@ -20,11 +20,11 @@
                   <img src="assets/img-van" class="img-card" alt="Van Image">
                   <div class="d'flex justify-content-center">
                   <% if i.destinations[0] %>
-                    <span>Départ: <%= i.destinations[0].city %></span> 
+                    <span><%= i.destinations[0].city %></span> 
                 <% end %>
                 <span class="h6">➲</span>
                 <% if i.destinations[-1] %>
-                  <span>Arrivée: <%= i.destinations[-1].city %></span> 
+                  <span><%= i.destinations[-1].city %></span> 
               <% end %>
               </div>
                   <div class="d-flex justify-content-between align-items-center">
