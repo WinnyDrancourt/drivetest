@@ -1,8 +1,19 @@
-<h1>Itineraries#show</h1>
-<p>Find me in app/views/itineraries/show.html.erb</p>
+<h1><%=@itinerary.title%>'s roadtrip by <%= link_to "#{@itinerary.user.first_name}", user_path(@itinerary.user)%></h1>
+<p> From <%=@start_date%> to <%=@end_date%>
+<%duration = []%>
+<%@itinerary.destinations.each do |d|%>
+  <% unless d.staying_time.nil? %>
+    <%duration.push(d.staying_time)%>
+  <%end%>
+<%end%>
+<p>Total days : <%=duration.sum%> days</p>
 
+<h2>Steps</h2>
+<%@itinerary.destinations.each do |d|%>
+  <li><%=d.city%> : for <%=d.staying_time%> days</li><br>
+<%end%>
 
-
+<!--
   <h1>Static Map Generator</h1>
   <form id="mapForm">
     <label for="city">Enter City Name or Coordinates:</label>
@@ -15,3 +26,4 @@
 <div id="geocoder"></div>  
 <pre id="result"></pre>  
 <script src="static_map.js.erb"></script>
+-->
