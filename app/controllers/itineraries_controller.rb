@@ -5,13 +5,23 @@ class ItinerariesController < ApplicationController
 
   def new
     @itinerary = Itinerary.new
-    @itinerary.destinations.build
+    @destination = @itinerary.destinations.build
+  end
+
+  def create
+    @itinerary = Itinerary.new(itinerary_params)
+    if @itinerary.save
+      redirect_to @itinerary
+    else
+      flash.now[:alert] = 'Failed to create itinerary: ' + @itinerary.errors.full_messages.join(', ')
+      render :new
+    end
   end
 
   private
 
   def itinerary_params
     params.require(:itinerary).permit(:title, :start_date, :end_date,
-                                      destination_attributes: %i[city notes staying_time])
+                                      destinations_attributes: %i[id city notes staying_time])
   end
 end
