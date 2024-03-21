@@ -1,5 +1,7 @@
 class ItinerariesController < ApplicationController
-  def index; end
+  def index
+    @all_itineraries = Itinerary.all
+  end
 
   def show
     #Setting start date if not set
