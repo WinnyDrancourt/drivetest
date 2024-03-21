@@ -31,5 +31,5 @@ function setupMap(center) {
     accessToken: apiKey,
     unit: "metric",
   });
-  map.addControl(directions, "top-left");
+  //  map.addControl(directions, "top-left");
 }
