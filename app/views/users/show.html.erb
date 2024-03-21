@@ -1,31 +1,35 @@
-<div class="jumbotron background-image-banner d-flex align-items-start ">
-  <div class="col-3 card-user">
+<div class="jumbotron background-image-banner d-flex align-items-start">
+  <div class="col-lg-3 col-md-6 card-user">
     <div class="d-flex justify-content-center">
-    <%= image_tag("png-clipart-apple-icon-format-icon-person-outline-white-monochrome.png", :class => "img-avatar") %>
+      <%= image_tag("png-clipart-apple-icon-format-icon-person-outline-white-monochrome.png", :class => "img-avatar") %>
     </div>
-
-    <p>First Name : <%=@user.first_name%></p>
-    <p>Last Name : <%=@user.last_name%></p>
-    <p id="city">City : <%=@user.city%></p>
+    <p>First Name: <%=@user.first_name%></p>
+    <p>Last Name: <%=@user.last_name%></p>
+    <p>E-mail: <%=@user.email%></p>
+    <p>City: <%=@user.city%></p>
     <p>Zip Code: <%=@user.zipcode%></p>
-    <%if current_user == @user%>
-      <p>E-mail : <%=@user.email%></p>
-      <%=link_to "Edit", edit_user_registration_path%>
-    <%end%>
-    <%= javascript_include_tag 'static_user' %>
-
-    <div id="cityMapContainer"></div>
+  </div>
+  <div class="col-lg-6 col-md-5 card-user">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-12 m-2 row d-flex justify-content-center">
+        <% @user.itineraries.each do |i| %>
+        <%= i.title %>
+        <%= image_tag("ajaccio.jpeg", :class => "img-destination") %>
+          <% if i.start_date %>
+            Date : <%= i.start_date %>
+          <% else %>
+            Date : <%= Date.today %>
+          <% end %>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 m-3 row d-flex justify-content-center">
+          <p class="mt-4">Departure: <%= i.destinations[0].city %></p>
+          <h3 class="ms-5">⟱</h3>
+          <p>Arrival: <%= i.destinations[-1].city %></p>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-12 m-3 d-flex justify-content-center align-items-center">
+          <p>Etapes: <%= i.destinations.length - 2 %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
-
-<%@user.itineraries.each do |i|%>
-  <%if i.start_date%>
-    <p><%=i.title%> starting on <%=i.start_date%></p>
-  <%else%>
-    <p><%=i.title%> starting on <%= Date.today%></p>
-  <%end%>
-
-  <li>Departure: <%=i.destinations[0].city%></li>
-  <li>Arrival :  <%=i.destinations[-1].city%></li><br>
-  <br>
-<%end%>
