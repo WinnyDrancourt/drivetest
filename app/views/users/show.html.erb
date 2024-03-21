@@ -14,9 +14,9 @@
 
   </div>
   <div class="col-lg-6 col-md-5 card-user">
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-12 m-2 row d-flex justify-content-center">
         <% @user.itineraries.each do |i| %>
+        <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 m-2 row d-flex justify-content-center">
         <%= i.title %>
         <%= image_tag("ajaccio.jpeg", :class => "img-destination") %>
           <% if i.start_date %>
@@ -33,7 +33,7 @@
         <div class="col-lg-1 col-md-1 col-sm-12 m-3 d-flex justify-content-center align-items-center">
           <p>Etapes: <%= i.destinations.length - 2 %></p>
         </div>
-      <% end %>
+      </div>
     </div>
-  </div>
+      <% end %>
 </div>
