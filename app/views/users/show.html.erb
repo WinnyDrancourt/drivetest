@@ -5,9 +5,13 @@
     </div>
     <p>First Name: <%=@user.first_name%></p>
     <p>Last Name: <%=@user.last_name%></p>
-    <p>E-mail: <%=@user.email%></p>
     <p>City: <%=@user.city%></p>
     <p>Zip Code: <%=@user.zipcode%></p>
+    <%if current_user == @user%>
+      <p>E-mail: <%=@user.email%></p>
+      <%=link_to "Edit Profile", edit_user_registration_path%>
+    <%end%>
+
   </div>
   <div class="col-lg-6 col-md-5 card-user">
     <div class="row">
