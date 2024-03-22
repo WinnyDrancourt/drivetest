@@ -17,8 +17,10 @@
                 
                 <h2>Steps</h2>
                 <ul>
-                    <% @itinerary.destinations.each do |d| %>
-                        <li><%= d.city %> : for <%= d.staying_time %> days</li>
+                    <% @itinerary.destinations.each_with_index do |d, index| %>
+                      <li class="city"><%= d.city %></li>
+                      <li> : for <%= d.staying_time %> days</li>
+                        <div id="cityMapContainer_<%= index %>"></div>
                     <% end %>
                     
                 </ul>
@@ -26,4 +28,5 @@
             </div>
         </div>
     </main>
+      <%= javascript_include_tag 'static_map' %>
 </body>

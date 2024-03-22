@@ -67,7 +67,7 @@ class ItinerariesController < ApplicationController
   end
 
   def default_dates(attr)
-    attribute[:start_date] ||= default_start_date
-    attribute[:end_date] ||= default_end_date(attr[:start_date], attr[:destinations_attributes])
+    attr[:start_date] ||= default_start_date
+    attr[:end_date] ||= default_end_date(attr[:start_date], attr[:destinations_attributes])
   end
 end
