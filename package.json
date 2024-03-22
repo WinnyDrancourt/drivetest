@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "vanilla-nested": "^1.7.1"
   }
 }
