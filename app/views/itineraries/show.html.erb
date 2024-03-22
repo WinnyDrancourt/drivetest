@@ -1,30 +1,29 @@
-<h1><%=@itinerary.title%>'s roadtrip by <%= link_to "#{@itinerary.user.first_name}", user_path(@itinerary.user)%></h1>
-<p> From <%=@start_date%> to <%=@end_date%>
-<%duration = []%>
-<%@itinerary.destinations.each do |d|%>
-  <% unless d.staying_time.nil? %>
-    <%duration.push(d.staying_time)%>
-  <%end%>
-<%end%>
-<p>Total days : <%=duration.sum%> days</p>
-
-<h2>Steps</h2>
-<%@itinerary.destinations.each do |d|%>
-  <li><%=d.city%> : for <%=d.staying_time%> days</li><br>
-<%end%>
-
-<!--
-  <h1>Static Map Generator</h1>
-  <form id="mapForm">
-    <label for="city">Enter City Name or Coordinates:</label>
-
-    <input type="text" id="city" name="city">
-    <button type="submit">Generate Map</button>
-  </form>
-  <div id="cityMapContainer"></div>
-
-<div id="geocoder"></div>  
-<pre id="result"></pre>  
-
-<%= javascript_include_tag 'static_map' %>
-
+<body>
+    <main>
+        <div class="jumbotron background-image-banner d-flex align-items-start">
+            <div class="col-lg-3 col-md-6 card-user">
+                <div class="">
+                    <h1><%= @itinerary.title %>'s roadtrip by <%= link_to "#{@itinerary.user.first_name}", user_path(@itinerary.user) %></h1><br>
+                    <p> From <%= @start_date %> to <%= @end_date %></p>
+                </div>
+            </div>
+            <div class="col-lg-6 ms-5 margin-top-15vh background-sand rounded">
+                <% duration = [] %>
+                <% @itinerary.destinations.each do |d| %>
+                    <% unless d.staying_time.nil? %>
+                        <% duration.push(d.staying_time) %>
+                    <% end %>
+                <% end %>
+                
+                <h2>Steps</h2>
+                <ul>
+                    <% @itinerary.destinations.each do |d| %>
+                        <li><%= d.city %> : for <%= d.staying_time %> days</li>
+                    <% end %>
+                    
+                </ul>
+                <p>Total days: <%= duration.sum %> days</p>
+            </div>
+        </div>
+    </main>
+</body>

@@ -5,11 +5,12 @@
   <div class="col-lg-3 col-md-6 card-user">
     <div class="overflow-hidden">
       <div id="coordinates_user" class="d-flex flex-column w-auto">
+      <div class="d-flex justify-content-center mt-1">
       <div id="cityMapContainer"></div>
-        <p> Latitude : </p>
-        <span><%= @user.latitude %></span>
-        <p>| Longitude : </p>
-        <span><%= @user.longitude %></span>
+      </div>
+        <span> Latitude : </span><span><%= @user.latitude %></span>
+        <span>Longitude :</span> <span><%= @user.longitude %></span>
+        
         </div>
     </div>
     <p>First Name: <%=@user.first_name%></p>
