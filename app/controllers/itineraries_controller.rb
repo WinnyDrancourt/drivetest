@@ -13,10 +13,9 @@ class ItinerariesController < ApplicationController
     end
 
     # Setting start date if not set
-    @start_date = @itinerary.start_date ? @itinerary.start_date.strftime('%d-%m-%Y') : Date.today.strftime('%d-%m-%Y')
-
+    @start_date = @itinerary.start_date.strftime('%d-%m-%Y')
     # Formatting end date
-    @end_date = @itinerary.end_date ? @itinerary.end_date.strftime('%d-%m-%Y') : 'Undefined'
+    @end_date = @itinerary.end_date.strftime('%d-%m-%Y')
   end
 
   def new
