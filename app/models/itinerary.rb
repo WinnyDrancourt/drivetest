@@ -4,6 +4,8 @@ class Itinerary < ApplicationRecord
   accepts_nested_attributes_for :destinations
   has_many :likes
 
+  after_initialize :build_default_destination
+
   # if limit option is present and user has >= destination than that, returns false
   # else, build a new destination
   def build_destination_with_limit
@@ -15,5 +17,11 @@ class Itinerary < ApplicationRecord
   def destinations_limit_reached?
     lmt = self.class.nested_attributes_options[:destinations][:limit]
     lmt.present? && destinations.size >= lmt
+  end
+
+  private
+
+  def build_default_destination
+    destinations.build if new_record? && destinations.empty?
   end
 end
