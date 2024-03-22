@@ -4,20 +4,19 @@ const apiKey = apiKeyMetaTag.getAttribute("content");
 mapboxgl.accessToken = apiKey;
 // End Api Key
 
-const cityForm = document.getElementById("mapForm");
-cityForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  const city = document.getElementById("city").value.trim();
-
+const cities = document.querySelectorAll(".city");
+cities.forEach(function (cityElement, index) {
+  const city = cityElement.textContent;
+  const containerId = `cityMapContainer_${index}`;
   // Call function to generate static map
-  generateStaticMap(city, "cityMapContainer");
+  generateStaticMap(city, containerId);
 });
 
 function generateStaticMap(city, containerId) {
   const apiKey = mapboxgl.accessToken;
-  const mapWidth = 600;
-  const mapHeight = 400;
-  const zoom = 13;
+  const mapWidth = 200;
+  const mapHeight = 200;
+  const zoom = 11;
 
   // Construct the URL for static map image
   let url = `https://api.mapbox.com/styles/v1/mapbox/outdoors-v12/static/`;
@@ -53,13 +52,3 @@ function displayStaticMap(url, containerId) {
   const mapContainer = document.getElementById(containerId);
   mapContainer.innerHTML = `<img src="${url}" alt="Static Map">`;
 }
-
-const geocoder = new MapboxGeocoder({
-  accessToken: mapboxgl.accessToken,
-  types: "country,region,place,postcode,locality,neighborhood",
-});
-
-geocoder.addTo("#geocoder");
-
-// Get the geocoder results container.
-const results = document.getElementById("result");
