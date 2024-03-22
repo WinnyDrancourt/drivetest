@@ -44,13 +44,13 @@
         <%= f.password_field :current_password, class: "form-control text-center", placeholder: "Confirm your password" %>
       </div>
       <div class="actions d-flex justify-content-center mt-2">
-        <%= f.submit "Sign up", class: "button-primary" %>
+        <%= f.submit "Edit", class: "button-primary background-sand border-0 rounded" %>
       </div>
     <% end %>
 
-    <div class="mt-2"><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+    <div class="mt-2"><%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "background-sand border-0 rounded" %></div>
 
-    <%= link_to "Back", :back, class: "button-primary"%>
+    <%= link_to "Back", :back, class: "text-dark"%>
   </div>
     
 

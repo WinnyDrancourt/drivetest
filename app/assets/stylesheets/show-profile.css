@@ -28,3 +28,10 @@
 .margin-top-15vh {
         margin-top: 15vh;
 }
+
+.scrollable-container {
+        overflow-y: auto; /* or overflow-y: scroll; */
+        height: 56vh; /* Optional: Limit the maximum height */
+        overflow-x: hidden;
+    }
+

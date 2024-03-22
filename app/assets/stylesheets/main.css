@@ -1,8 +1,19 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fbbe98;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffc5c5;
+}
+
 html {
     margin: 0;
     padding: 0;
-
-    height: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -10,16 +21,28 @@ html {
     background-repeat:no-repeat;
     background: linear-gradient(0deg, rgba(203,192,185,1) 0%, rgba(255,255,255,1) 100%);
 
+    overflow:auto;
     overflow-x: hidden;
 }
 
+html, body {
+  min-height: 100vh !important;
+}
+
+
 body {
-    min-height: 100vh;
+    min-height: 100vh !important;
     background: linear-gradient(0deg, rgba(203,192,185,1) 0%, rgba(255,255,255,1) 100%) !important;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
 
+main {
+  height: fit-content;
 }
 
 .background-green {
@@ -29,6 +52,7 @@ body {
 .background-sand {
     background-color: #FAD6C0 !important;
 }
+
 
 .button-card {
     width: 100px;
