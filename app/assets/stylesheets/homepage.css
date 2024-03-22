@@ -8,8 +8,8 @@
 
 
 .img-card {
-    width: auto;
-    height: 20vh;
+    width: 28vw;
+    height: auto;
     display: flex;
     justify-content: center;
 }

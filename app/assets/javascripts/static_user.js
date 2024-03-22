@@ -7,11 +7,11 @@ mapboxgl.accessToken = apiKey;
 function getCityFromCoordinates() {
   const latitude = document
     .getElementById("coordinates_user")
-    .querySelector("span:nth-of-type(1)")
+    .querySelector("span:nth-of-type(2)")
     .textContent.trim();
   const longitude = document
     .getElementById("coordinates_user")
-    .querySelector("span:nth-of-type(2)")
+    .querySelector("span:nth-of-type(4)")
     .textContent.trim();
   let city = longitude + ", " + latitude;
   return city;
@@ -22,8 +22,8 @@ generateStaticMap(city, "cityMapContainer");
 
 function generateStaticMap(city, containerId) {
   const apiKey = mapboxgl.accessToken;
-  const mapWidth = 600;
-  const mapHeight = 400;
+  const mapWidth = 300;
+  const mapHeight = 250;
   const zoom = 12;
 
   // Construct the URL for static map image
