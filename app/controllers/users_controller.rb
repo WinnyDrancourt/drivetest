@@ -1,14 +1,6 @@
 class UsersController < ApplicationController
-  
+
   def show
-  end
-
-  def index
-  end
-
-  private
-
-  def set_user
     if params[:id].present?
       begin
         @user = User.find(params[:id])
@@ -19,6 +11,9 @@ class UsersController < ApplicationController
     else
       @user = current_user
     end
+  end
+
+  def index
   end
 
 end
