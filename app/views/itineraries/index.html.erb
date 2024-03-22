@@ -1,10 +1,30 @@
 <h1>See all of our members' Roadtrips!</h1>
 
-<% @all_itineraries.each do |itinerary| %>
-    <%= link_to itinerary.title, itinerary_path(itinerary) %><br>
-    <% if itinerary.destinations.any? %>
-      <p>From <%= itinerary.destinations.first.city %> to <%= itinerary.destinations.last.city %></p>
-    <% else %>
-      <p>No destinations specified yet</p>
-    <% end %>
-<% end %>
+<div class="album py-5">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <% @all_itineraries.each do |itinerary| %>
+        <div class="col-3">
+          <%= link_to itinerary_path(itinerary), class: "text-dark text-decoration-none" do %>
+          <div class="card background-green shadow-sm">
+            <div class="card-body d-flex flex-column justify-content-center align-items-center">
+              <%= itinerary.title %>
+              <img src="assets/img-van" class="img-card" alt="Van Image">
+              <div class="d-flex justify-content-center">
+                <% if itinerary.destinations.any? %>
+                  <p><%= itinerary.destinations.first.city %> <span class="h6">➲</span> <%= itinerary.destinations.last.city %></p>
+                <% else %>
+                  <p>No destinations specified yet</p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

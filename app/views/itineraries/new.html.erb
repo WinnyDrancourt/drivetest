@@ -1,12 +1,17 @@
-<%= form_for @itinerary, html: {class: 'itinerary_form_with_destinations'} do |f| %>
-
-  <%= render partial: 'form_fields_with_variable_destinations', locals: { f: f} %>
-
-  <%= f.submit %>
-
-<% end %>
-
-<!-- Interactive Map -->
-<div id='map' style='width: 25vh; height: 25vh;'></div>
-<%= javascript_include_tag 'map' %>
-<!-- End Interactive Map -->
+<main class="d-flex">
+  <div class="d-flex">
+    <div class="col-4">
+      <div class="itinerary-form">
+        <%= form_for @itinerary, html: {class: 'itinerary_form_with_destinations'} do |f| %>
+          <%= render partial: 'form_fields_with_variable_destinations', locals: { f: f} %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <!-- Interactive Map -->
+      <div id='map' style='width: 80vw; height: 90vh;'></div>
+      <%= javascript_include_tag 'map' %>
+    </div>
+  </div>
+</main>
