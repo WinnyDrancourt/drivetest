@@ -1,7 +1,7 @@
 class Itinerary < ApplicationRecord
   belongs_to :user
   has_many :destinations, dependent: :destroy
-  accepts_nested_attributes_for :destinations
+  accepts_nested_attributes_for :destinations, allow_destroy: true, reject_if: :all_blank
   has_many :likes
 
   after_initialize :build_default_destination
