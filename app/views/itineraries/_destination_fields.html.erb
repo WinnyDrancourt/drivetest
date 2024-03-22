@@ -14,6 +14,7 @@
     <%= f.number_field :staying_time, in: 1..31, step: 1 %>
   </div>
 
+
     <%= link_to_remove_nested(f, link_text: 'Destroy', fields_wrapper_selector: '.columns') %>
 
   <% if params[:dynamic_form] == '1' %>
@@ -24,3 +25,4 @@
     <% end %>
   <% end %>
 </div>
+
