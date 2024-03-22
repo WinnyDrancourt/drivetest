@@ -24,7 +24,6 @@ class ItinerariesController < ApplicationController
 
   def create
     @itinerary = @user.itineraries.build(itinerary_params)
-    @current_etape = @itinerary.destinations.size + 1
 
     if params[:commit] == 'add_destination'
       @itinerary.build_destination_with_limit
@@ -51,8 +50,8 @@ class ItinerariesController < ApplicationController
 
   def itinerary_params
     params.require(:itinerary).permit(:title, :start_date, :end_date,
-                                      destinations_attributes: %i[id city notes staying_time _destroy]).tap do |attribute|
-      set_default_dates(attribute)
+                                      destinations_attributes: %i[id city notes staying_time _destroy]).tap do |attr|
+      default_dates(attr)
     end
   end
 
@@ -67,8 +66,8 @@ class ItinerariesController < ApplicationController
     start_date + stay.days
   end
 
-  def set_default_dates(attribute)
+  def default_dates(attr)
     attribute[:start_date] ||= default_start_date
-    attribute[:end_date] ||= default_end_date(attribute[:start_date], attribute[:destinations_attributes])
+    attribute[:end_date] ||= default_end_date(attr[:start_date], attr[:destinations_attributes])
   end
 end

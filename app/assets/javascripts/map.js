@@ -16,6 +16,8 @@ function errorLocation() {
   setupMap([3.16, 50.72]);
 }
 
+let markers = [];
+
 function setupMap(center) {
   var map = new mapboxgl.Map({
     container: "map",
@@ -27,9 +29,38 @@ function setupMap(center) {
   const nav = new mapboxgl.NavigationControl();
   map.addControl(nav);
 
-  const directions = new MapboxDirections({
-    accessToken: apiKey,
-    unit: "metric",
+  const geocoder = new MapboxGeocoder({
+    // Initialize the geocoder
+    accessToken: mapboxgl.accessToken, // Set the access token
+    mapboxgl: mapboxgl, // Set the mapbox-gl instance
+    marker: false, // Do not use the default marker style
   });
-  //  map.addControl(directions, "top-left");
+
+  // Add the geocoder to the map
+  map.addControl(geocoder, "top-left");
+
+  geocoder.on("result", function (e) {
+    // Obtenez les coordonnées du résultat de géocodage
+    const coordinates = e.result.geometry.coordinates;
+    console.log("Marker position:", center);
+
+    const marker = new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
+    markers.push(marker);
+
+    map.on("contextmenu", function (e) {
+      const clickedCoordinates = e.lngLat;
+
+      const tolerance = 500; // Tolérance pour la proximité des marqueurs
+
+      markers.forEach((marker, index) => {
+        const markerCoordinates = marker.getLngLat();
+        const distance = clickedCoordinates.distanceTo(markerCoordinates);
+
+        if (distance < tolerance) {
+          marker.remove();
+          markers.splice(index, 1);
+        }
+      });
+    });
+  });
 }

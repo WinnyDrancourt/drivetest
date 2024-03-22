@@ -3,8 +3,14 @@
     <main>
 <div class="jumbotron background-image-banner d-flex align-items-start">
   <div class="col-lg-3 col-md-6 card-user">
-    <div class="d-flex justify-content-center">
-      <%= image_tag("png-clipart-apple-icon-format-icon-person-outline-white-monochrome.png", :class => "img-avatar") %>
+    <div class="overflow-hidden">
+      <div id="coordinates_user" class="d-flex flex-column w-auto">
+      <div id="cityMapContainer"></div>
+        <p> Latitude : </p>
+        <span><%= @user.latitude %></span>
+        <p>| Longitude : </p>
+        <span><%= @user.longitude %></span>
+        </div>
     </div>
     <p>First Name: <%=@user.first_name%></p>
     <p>Last Name: <%=@user.last_name%></p>
@@ -51,4 +57,5 @@
   </div>
 </div>
 </main>
+      <%= javascript_include_tag 'static_user' %>
 </body>
