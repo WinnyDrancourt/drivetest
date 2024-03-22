@@ -79,3 +79,5 @@ gem 'geocoder'
 gem 'dotenv'
 
 gem 'mapbox-sdk'
+
+gem 'vanilla_nested'

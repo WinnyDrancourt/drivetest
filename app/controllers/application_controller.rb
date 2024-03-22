@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
       @user = current_user
     end
   end
+
+  def itineraries_count
+    @iti_count = Itinerary.all.size
+  end
 end

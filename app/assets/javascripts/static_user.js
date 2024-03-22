@@ -4,20 +4,27 @@ const apiKey = apiKeyMetaTag.getAttribute("content");
 mapboxgl.accessToken = apiKey;
 // End Api Key
 
-const cityForm = document.getElementById("mapForm");
-cityForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  const city = document.getElementById("city").value.trim();
-
-  // Call function to generate static map
-  generateStaticMap(city, "cityMapContainer");
-});
+function getCityFromCoordinates() {
+  const latitude = document
+    .getElementById("coordinates_user")
+    .querySelector("span:nth-of-type(1)")
+    .textContent.trim();
+  const longitude = document
+    .getElementById("coordinates_user")
+    .querySelector("span:nth-of-type(2)")
+    .textContent.trim();
+  let city = longitude + ", " + latitude;
+  return city;
+}
+const city = getCityFromCoordinates();
+// Call function to generate static map
+generateStaticMap(city, "cityMapContainer");
 
 function generateStaticMap(city, containerId) {
   const apiKey = mapboxgl.accessToken;
   const mapWidth = 600;
   const mapHeight = 400;
-  const zoom = 14;
+  const zoom = 12;
 
   // Construct the URL for static map image
   let url = `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v12/static/`;
