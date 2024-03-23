@@ -6,13 +6,13 @@ mapboxgl.accessToken = apiKey;
 
 function getCityFromCoordinates() {
   const latitude = document
-    .getElementById("coordinates_user")
-    .querySelector("span:nth-of-type(2)")
-    .textContent.trim();
+    .querySelector("#coordinates_user>p:nth-of-type(1)>i")
+    .innerText.trim()
+    .split(":")[0];
   const longitude = document
-    .getElementById("coordinates_user")
-    .querySelector("span:nth-of-type(4)")
-    .textContent.trim();
+    .querySelector("#coordinates_user>p:nth-of-type(2)>i")
+    .innerText.trim()
+    .split(":")[0];
   let city = longitude + ", " + latitude;
   return city;
 }
@@ -22,7 +22,7 @@ generateStaticMap(city, "cityMapContainer");
 
 function generateStaticMap(city, containerId) {
   const apiKey = mapboxgl.accessToken;
-  const mapWidth = 300;
+  const mapWidth = 250;
   const mapHeight = 250;
   const zoom = 12;
 
