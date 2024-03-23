@@ -1,0 +1,20 @@
+<div class="card-user overflow-hidden">
+    <div id="cityMapContainer" class="w-100 d-flex justify-content-center"></div>
+    <div id="coordinates_user" class="d-flex justify-content-around">
+      <p><u>Lat :</u> <i><%= @user.latitude %></i></p>
+      <p><u>Lgt :</u> <i><%= @user.longitude %></i></p>
+    </div> 
+  <div class="d-flex flex-column text-center">
+    <p><u>First Name :</u> <%=@user.first_name%></p>
+    <p><u>Last Name:</u> <%=@user.last_name%></p>
+    <p><u>City:</u> <%=@user.city%></p>
+    <p><u>Zip Code:</u> <%=@user.zipcode%></p>
+    <%if current_user == @user%>
+    <p><u>E-mail:</u> <%=@user.email%></p>
+  </div>
+  <div class="d-flex justify-content-end me-2 mb-2">
+  <%= button_to "Edit Profile", edit_user_registration_path, class:"btn btn-secondary background-sand text-dark border-0"%>
+  <%end%>
+  </div>
+</div>
+<%= javascript_include_tag 'static_user' %>

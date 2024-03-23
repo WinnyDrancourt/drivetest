@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def show
     if params[:id].present?
       begin
@@ -13,7 +12,5 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-  end
-
+  def index; end
 end

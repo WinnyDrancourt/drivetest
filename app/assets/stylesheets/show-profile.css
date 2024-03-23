@@ -1,37 +1,33 @@
 .background-image-banner {
-        background-image: url("assets/baniere-fond-topo");
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 25vh;
+  background-image: url("assets/baniere-fond-topo");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 25vh;
 }
 
 .card-user {
-        margin-top: 10vh;
-        margin-left: 10vh;
-        background-color: #FAD6C0;
-        border-radius: 10px;
-        padding: 0 20px;
+  background-color: #fad6c0;
+  border-radius: 10px;
+  width: 250px;
 }
 
 .img-avatar {
-        width: 200px;
-        height: 200px;
-        border-radius: 30px 0;
-      }
+  width: 200px;
+  height: 200px;
+  border-radius: 30px 0;
+}
 
 .img-destination {
-        border-radius: 30%;
-        width: 200px;
-        height: auto;
+  width: 200px;
+  height: auto;
 }
 
 .margin-top-15vh {
-        margin-top: 10vh;
+  margin-top: 10vh;
 }
 
 .scrollable-container {
-        overflow-y: auto; /* or overflow-y: scroll; */
-        height: 56vh; /* Optional: Limit the maximum height */
-        overflow-x: hidden;
-    }
-
+  overflow-y: auto; /* or overflow-y: scroll; */
+  height: 56vh; /* Optional: Limit the maximum height */
+  overflow-x: hidden;
+}

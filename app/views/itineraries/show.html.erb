@@ -17,12 +17,11 @@
                 
                 <h2>Steps</h2>
                 <ul>
-                    <% @itinerary.destinations.each_with_index do |d, index| %>
-                      <li class="city"><%= d.city %></li>
-                      <li> : for <%= d.staying_time %> days</li>
-                        <div id="cityMapContainer_<%= index %>"></div>
-                    <% end %>
-                    
+                  <% @itinerary.destinations.each_with_index do |d, index| %>
+                    <li class="city"><%= d.city %></li>
+                    <li> : for <%= d.staying_time %> days</li>
+                    <div id="cityMapContainer_<%= index %>"></div>
+                  <% end %>
                 </ul>
                 <p>Total days: <%= duration.sum %> days</p>
             </div>
