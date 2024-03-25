@@ -1,23 +1,24 @@
-<main class="d-flex">
+<body>
+<main>
+  
   <div class="background-green col-3 scrollable-container-new-iti ps-5">
-  <div class="col-4">
-  <div class="itinerary-form">
-    <%= form_for @itinerary, html: {class: 'itinerary_form_with_destinations'} do |f| %>
-      <div>
-      <%= render partial: 'form_fields_with_variable_destinations', locals: { f: f} %>
-      <div>
-      <%= f.submit "Create itinerary", class: "background-sand border-0 rounded" %>
+        <%= form_for @itinerary, html: {class: 'itinerary_form_with_destinations'} do |f| %>
+          <div>
+          <%= render partial: 'form_fields_with_variable_destinations', locals: { f: f} %>
+          </div>
+        
 
-      </div>
-      </div>
+  </div>
+  <div class="align-self-end">
+
+    <%= f.submit "Create itinerary", class: "background-sand border-0 position-itinerary-button" %>
     <% end %>
   </div>
-</div>
-    <div class="col-md-9">
-      <!-- Interactive Map -->
-      <div id='map' style='width: 75vw; height: 90vh; position: absolute; top: 60px; left: 25vw;'></div>
-      <%= javascript_include_tag 'map' %>
-    </div>
 
+  <div class="col-md-9">
+    <!-- Interactive Map -->
+    <div id='map' style='width: 75vw; height: 85vh; position: absolute; top: 61px; left: 25vw;'></div>
+    <%= javascript_include_tag 'map' %>
   </div>
 </main>
+</body>
