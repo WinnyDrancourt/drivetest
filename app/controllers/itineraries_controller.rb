@@ -4,16 +4,11 @@ class ItinerariesController < ApplicationController
   end
 
   def show
-    if @itinerary.nil?
-      flash[:alert] = "Itinerary doesn't exist yet!"
-      redirect_to root_path
-      return
-    end
+    return unless @itinerary.nil?
 
-    # Setting start date if not set
-    @start_date = @itinerary.start_date.strftime('%d-%m-%Y')
-    # Formatting end date
-    @end_date = @itinerary.end_date.strftime('%d-%m-%Y')
+    flash[:alert] = "Itinerary doesn't exist yet!"
+    redirect_to root_path
+    nil
   end
 
   def new
@@ -24,7 +19,7 @@ class ItinerariesController < ApplicationController
     @itinerary = @user.itineraries.build(itinerary_params)
 
     if params[:commit] == 'add_destination'
-      @itinerary.build_destination_with_limit
+      @itinerary.build_destination
       render :new
     elsif @itinerary.save
       redirect_to @itinerary
@@ -34,6 +29,8 @@ class ItinerariesController < ApplicationController
   end
 
   def update
+    @itinerary = Itinerary.find(params[:id])
+
     if @itinerary.update(itinerary_params)
       redirect_to @itinerary, notice: 'Itinerary was successfully updated.'
     else
