@@ -14,7 +14,7 @@
   <% if params[:dynamic_form] == '1' %>
     <%= link_to_add_nested(f, :destinations, '#nested_destinations', partial_form_variable: :f) %>
   <% else %>
-    <%= button_tag 'Add destination', type: 'submit', name: 'commit', value: 'add_destination', class: "background-sand border-0 rounded" %>
+    <%= button_tag 'Add destination', type: 'submit', name: 'commit', value: 'add_destination', class: "background-sand border-0 rounded mt-3" %>
   <% end %>
   </div>
 <% end %>

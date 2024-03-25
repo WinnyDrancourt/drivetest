@@ -1,5 +1,11 @@
 .scrollable-container-new-iti {
-    overflow-y: auto; /* or overflow-y: scroll; */
-    height: 90vh; /* Optional: Limit the maximum height */
+    overflow-y: scroll;
+    height: 80vh;
     overflow-x: hidden;
+    
+}
+
+.position-itinerary-button {
+    width: 25vw;
+    height: 5vh;
 }
