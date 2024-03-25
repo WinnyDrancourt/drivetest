@@ -33,11 +33,34 @@ class ItinerariesController < ApplicationController
     end
   end
 
+  def update
+    if @itinerary.update(itinerary_params)
+      redirect_to @itinerary, notice: 'Itinerary was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @itinerary = Itinerary.find(params[:id])
     @itinerary.destinations.destroy_all
     @itinerary.destroy
     redirect_to itineraries_path
+  end
+
+  def calculate_travel_time(origin, destination)
+    origin_coord = Geocoder.search(origin.city).first.coordinates
+    destination_coord = Geocoder.search(destination.city).first.coordinates
+
+    response = mapbox.directions([origin_coord, destination_coord], profile: 'driving')
+    puts response.inspect
+    @travel_time = response.routes[-1].legs[0].duration
+
+    hours = travel_time / 3599
+    minutes = (travel_time % 3599) / 60
+    seconds = travel_time % 59
+
+    { hours:, minutes:, seconds: }
   end
 
   private
@@ -63,5 +86,13 @@ class ItinerariesController < ApplicationController
   def default_dates(attr)
     attr[:start_date] ||= default_start_date
     attr[:end_date] ||= default_end_date(attr[:start_date], attr[:destinations_attributes])
+  end
+
+  def stay_count
+    @stay = @itinerary.total_staying_time
+  end
+
+  def mapbox
+    @mapbox ||= Mapbox::Directions.new(access_token: ENV['MAPBOX_ACCESS_TOKEN'])
   end
 end

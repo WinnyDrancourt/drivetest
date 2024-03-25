@@ -1,31 +1,11 @@
-<body>
-    <main>
-        <div class="jumbotron background-image-banner d-flex align-items-start">
-            <div class="col-lg-3 col-md-6 card-user">
-                <div class="">
-                    <h1><%= @itinerary.title %>'s roadtrip by <%= link_to "#{@itinerary.user.first_name}", user_path(@itinerary.user) %></h1><br>
-                    <p> From <%= @start_date %> to <%= @end_date %></p>
-                </div>
-            </div>
-            <div class="col-lg-6 ms-5 margin-top-15vh background-sand rounded">
-                <% duration = [] %>
-                <% @itinerary.destinations.each do |d| %>
-                    <% unless d.staying_time.nil? %>
-                        <% duration.push(d.staying_time) %>
-                    <% end %>
-                <% end %>
-                
-                <h2>Steps</h2>
-                <ul>
-                  <% @itinerary.destinations.each_with_index do |d, index| %>
-                    <li class="city"><%= d.city %></li>
-                    <li> : for <%= d.staying_time %> days</li>
-                    <div id="cityMapContainer_<%= index %>"></div>
-                  <% end %>
-                </ul>
-                <p>Total days: <%= duration.sum %> days</p>
-            </div>
-        </div>
-    </main>
-      <%= javascript_include_tag 'static_map' %>
-</body>
+<div class="jumbotron background-image-banner"></div>
+<h1><%= @itinerary.title %>'s roadtrip by <%= link_to "#{@itinerary.user.first_name}", user_path(@itinerary.user) %></h1><br>
+<p> From <%= @start_date %> to <%= @end_date %></p>
+<% @itinerary.destinations.each_with_index do |d, i| %>
+<%= render partial: 'destination_card', locals: { d: d, i: i } %>
+<% end %>
+<p>Total days: <%= @itinerary.total_staying_time %> days</p>
+
+  <%= link_to "Edit Profile", edit_itinerary_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0"%>
+<div class="filler"></div>
+

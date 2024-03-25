@@ -1,0 +1,24 @@
+<%= form_for @itinerary, url: itinerary_path(@itinerary), method: :patch do |f| %>
+  <!-- Itinerary fields -->
+  <%= f.text_field :title %>
+  <%= f.date_field :start_date %>
+  <%= f.date_field :end_date %>
+
+  <!-- Nested destinations fields -->
+  <% @itinerary.destinations.each do |destination| %>
+    <%= fields_for "itinerary[destinations_attributes][]", destination do |destination_fields| %>
+      <%= destination_fields.text_field :city %>
+      <%= destination_fields.text_area :notes %>
+      <%= destination_fields.number_field :staying_time %>
+    <% end %>
+  <% end %>
+
+  <!-- Add new destination fields -->
+  <%= fields_for "itinerary[destinations_attributes][]", Destination.new do |new_destination_fields| %>
+    <%= new_destination_fields.text_field :city %>
+    <%= new_destination_fields.text_area :notes %>
+    <%= new_destination_fields.number_field :staying_time %>
+  <% end %>
+
+  <%= f.submit "Update Itinerary" %>
+<% end %>

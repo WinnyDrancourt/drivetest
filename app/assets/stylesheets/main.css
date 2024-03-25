@@ -46,6 +46,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  font-family: Garamond, serif !important;
 }
 
 main {
