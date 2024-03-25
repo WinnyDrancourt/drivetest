@@ -8,6 +8,7 @@ class Itinerary < ApplicationRecord
 
   # if limit option is present and user has >= destination than that, returns false
   # else, build a new destination
+  # Logic to add forms
   def build_destination_with_limit
     return false if destinations_limit_reached?
 
@@ -19,9 +20,11 @@ class Itinerary < ApplicationRecord
     lmt.present? && destinations.size >= lmt
   end
 
-  private
-
   def build_default_destination
     destinations.build if new_record? && destinations.empty?
+  end
+
+  def total_staying_time
+    destinations.sum(:staying_time)
   end
 end
