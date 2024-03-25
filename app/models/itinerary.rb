@@ -6,6 +6,10 @@ class Itinerary < ApplicationRecord
 
   after_initialize :build_default_destination
 
+  def build_destination
+    destinations.build
+  end
+
   def build_default_destination
     destinations.build if new_record? && destinations.empty?
   end

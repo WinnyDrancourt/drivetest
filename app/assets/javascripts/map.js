@@ -1,6 +1,6 @@
 // Api Key
-const apiKeyMetaTag = document.querySelector('meta[name="api_key"]');
-const apiKey = apiKeyMetaTag.getAttribute("content");
+let apiKeyMetaTag = document.querySelector('meta[name="api_key"]');
+let apiKey = apiKeyMetaTag.getAttribute("content");
 mapboxgl.accessToken = apiKey;
 // End Api Key
 
