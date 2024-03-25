@@ -1,11 +1,23 @@
-<div class="jumbotron background-image-banner"></div>
+<div class="jumbotron background-image-banner d-flex justify-content-center align-items-center">
 <h1><%= @itinerary.title %>'s roadtrip by <%= link_to "#{@itinerary.user.first_name}", user_path(@itinerary.user) %></h1><br>
+</div>
 <p> From <%= @start_date %> to <%= @end_date %></p>
+<div class="d-flex justify-content-around">
 <% @itinerary.destinations.each_with_index do |d, i| %>
-<%= render partial: 'destination_card', locals: { d: d, i: i } %>
+<%= render partial: 'destination_container', locals: { d: d, i: i } %>
 <% end %>
+</div>
 <p>Total days: <%= @itinerary.total_staying_time %> days</p>
 
-  <%= link_to "Edit Profile", edit_itinerary_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0"%>
-<div class="filler"></div>
+  <%= link_to "Edit itinerary", edit_itinerary_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0"%>
+  <%= link_to "Add destination", new_itinerary_destination_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0"%>
+  <div class="filler"></div>
 
+<div class="jumbotron background-image-banner d-flex align-items-center justify-content-center">
+  <div class="background-sand text-dark rounded text-center w-50">
+    <h1><%= @itinerary.title %>'s roadtrip by <%= link_to "#{@itinerary.user.first_name}", user_path(@itinerary.user), class: "text-dark" %></h1>
+    <p>From <%= @start_date %> to <%= @end_date %></p>
+    <p>Total days: <%= @itinerary.total_staying_time %> days</p>
+    <%= link_to "Edit Itinerary", edit_itinerary_path(@itinerary), class:" text-dark"%>
+  </div>
+</div>

@@ -1,28 +1,8 @@
 <div class="card-itinerary background-green d-flex flex-column">
-  <div class="cityMapContainer_<%= i %>"></div>
-  <p><%= d.city %></p>
-  <% if @itinerary.destinations[i+1].nil? %>
-    <p>Vous etes arrivees</p>
-  <% else%>
-  <p><%= @itinerary.destinations[i+1].city %></p>
-<% end %>
-  <p><%= d.notes %></p>
-  <p><%= d.staying_time %></p>
-</div>
-<% if i < @itinerary.destinations.size - 1 %>
-  <div class="card-itinerary background-green d-flex flex-column">
     <div class="cityMapContainer_<%= i %>"></div>
-    <% next_destination = @itinerary.destinations[i + 1] %>
-    <p>From <%= d.city %> to <%= next_destination.city %>:</p>
-    
-    <%= @travel_time %>
-    
-    <% if @travel_time.present? %>
-      <p>Travel time: <%= "#{travel_time[:hours]} hours #{travel_time[:minutes]} minutes #{travel_time[:seconds]} seconds" %></p>
-    <% else %>
-      <p>Travel time could not be calculated</p>
-    <% end %>
+    <div class="city"><p><%= d.city %></p></div>
+    <p><%= d.notes %></p>
+    <p><%= d.staying_time %></p>
+  <%= link_to "Edit Profile", edit_itinerary_destination_path(@itinerary, @itinerary.destinations[i]), class:"btn btn-secondary background-sand text-dark border-0"%>
   </div>
-<% end %>
-<%= javascript_include_tag 'static_map' %>
 

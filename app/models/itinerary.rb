@@ -6,20 +6,6 @@ class Itinerary < ApplicationRecord
 
   after_initialize :build_default_destination
 
-  # if limit option is present and user has >= destination than that, returns false
-  # else, build a new destination
-  # Logic to add forms
-  def build_destination_with_limit
-    return false if destinations_limit_reached?
-
-    destinations.build
-  end
-
-  def destinations_limit_reached?
-    lmt = self.class.nested_attributes_options[:destinations][:limit]
-    lmt.present? && destinations.size >= lmt
-  end
-
   def build_default_destination
     destinations.build if new_record? && destinations.empty?
   end
