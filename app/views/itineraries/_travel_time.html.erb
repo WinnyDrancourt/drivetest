@@ -1,6 +1,7 @@
 <div class="card-itinerary background-green d-flex flex-column">
     <% next_destination = @itinerary.destinations[i + 1] %>
-    <p><%= i +1 %>From <%= d.city %> to <%= next_destination.city %>:</p>
+    <p><%= i +2 %></p>
+    <p>From <%= d.city %> to <%= next_destination.city %>:</p>
     <%= @travel_time %>
     <% if @travel_time.present? %>
       <p>Travel time: <%= "#{travel_time[:hours]} hours #{travel_time[:minutes]} minutes #{travel_time[:seconds]} seconds" %></p>
