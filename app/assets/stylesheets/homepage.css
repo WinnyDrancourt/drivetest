@@ -1,5 +1,5 @@
 .background-image-jumbotron {
-    background-image: url("assets/color-04");
+    background-image: url("assets/view-for-jumbotron");
     background-size: cover;
     background-repeat: no-repeat;
     height: 45vh;
@@ -17,4 +17,12 @@
 .img-presentation {
     width: 40vw;
     height: auto;
+}
+
+.background-image-card {
+    background-image: url("assets/ajaccio");
+    background-color: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.4) 100%);
+    background-size:contain;
+    background-repeat: no-repeat;
+    color: white;
 }

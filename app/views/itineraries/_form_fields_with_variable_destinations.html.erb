@@ -1,7 +1,6 @@
 <div>
 <div class="field">
-    <%= f.label :Titre %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "field-new-iti", placeholder: "Title" %>
   </div>
 
 <%= f.fields_for :destinations do |fd| %>
