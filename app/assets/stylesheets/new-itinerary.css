@@ -1,12 +1,12 @@
 .scrollable-container-new-iti {
     overflow-y: scroll;
-    height: 80vh;
+    height: 82vh;
     overflow-x: hidden;
     
 }
 
 .position-itinerary-button {
-    width: 25vw;
+    width: 100%;
     height: 5vh;
 }
 
@@ -16,3 +16,20 @@
     margin: 5px 0 0 0;
     width: 17vw;
 }
+
+.map-size {
+    width: 75vw; 
+    height: 87vh;
+}
+
+@media only screen and (max-width: 768px) {
+    #form-container-iti {
+      height: 30vh;
+      width: 100vw;
+    }
+
+    .map-size {
+        height: 40vh !important;
+        width: 100vw !important;
+    }
+  }
