@@ -9,3 +9,10 @@
     width: 25vw;
     height: 5vh;
 }
+
+.field-new-iti {
+    border: solid 1px gray;
+    border-radius: 5px;
+    margin: 5px 0 0 0;
+    width: 17vw;
+}

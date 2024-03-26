@@ -35,33 +35,48 @@ body {
 
 body {
   min-height: 100vh !important;
-  background: linear-gradient(
+  background-color: #d9f4ff !important;
+  /* background: linear-gradient(
     0deg,
     rgba(203, 192, 185, 1) 0%,
     rgba(255, 255, 255, 1) 100%
-  ) !important;
+  ) !important; */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  font-family: Garamond, serif !important;
+  /* font-family: Garamond, serif !important; */
+}
+
+footer{
+  margin-top: auto;
 }
 
 main {
   height: fit-content;
 }
 
+.logo-website {
+  height: 5vh;
+  width: auto;
+}
+
 .filler {
   flex-grow: 1;
 }
 .background-green {
-  background-color: #abc4aa !important;
+  background-color: #97CDB6 !important;
 }
 
 .background-sand {
-  background-color: #fad6c0 !important;
+  background-color: #FA9270 !important;
+  color: white !important;
+}
+
+.background-light-grey {
+  background-color: rgb(231, 231, 231);
 }
 
 .card-itinerary {
@@ -161,7 +176,7 @@ main {
 
 .button-card-large {
   width: 450px;
-  height: 56px;
+  height: 50px;
   overflow: hidden;
   border: none;
   background: none;
