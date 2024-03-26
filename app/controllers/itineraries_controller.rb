@@ -1,9 +1,10 @@
 class ItinerariesController < ApplicationController
   def index
-    @itineraries = Itinerary.all
+    @itineraries = Itinerary.all.sort_by(&:count_likes).reverse
   end
 
   def show
+    @like = @user.likes.find_by(itinerary_id: @itinerary.id)
     return unless @itinerary.nil?
 
     flash[:alert] = "Itinerary doesn't exist yet!"
