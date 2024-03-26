@@ -1,9 +1,20 @@
 <div class="jumbotron background-image-banner d-flex align-items-center justify-content-center">
   <div class="background-sand text-dark rounded text-center w-50">
     <h1><%= @itinerary.title %>'s roadtrip by <%= link_to "#{@itinerary.user.first_name}", user_path(@itinerary.user), class: "text-dark" %></h1>
-    <p>From <%= @start_date %> to <%= @end_date %></p>
+    <p>From <%= @itinerary.start_date.strftime("%d/%m/%Y") %> to <%= @itinerary.end_date.strftime("%d/%m/%Y") %></p>
     <p>Total days: <%= @itinerary.total_staying_time %> days</p>
     <%= link_to "Edit Itinerary", edit_itinerary_path(@itinerary), class:" text-dark"%>
+    <!-- Likes -->
+    <div class="d-flex justify-content-center">
+      <p><%= @itinerary.likes.count %><%= (@itinerary.likes.count) == 0 || 1? 'Like' : 'Likes' %></p>
+      <div class="ms-2">
+        <% if @like.nil? %>
+          <%= button_to "Like", likes_path, params: { like: {itinerary_id: @itinerary.id}}, method: :post %>
+        <% else %>
+          <%= button_to "Unlike", like_path(@like), method: :delete %>
+        <% end %>
+      </div>
+    </div>
   </div>
   </div>
   <div class="d-flex justify-content-center">
@@ -14,11 +25,7 @@
 <%= render partial: 'destination_container', locals: { d: d, i: i } %>
 
 <% end %>
-
 </div>
 
 
   <div class="filler"></div>
-
-
-</div>

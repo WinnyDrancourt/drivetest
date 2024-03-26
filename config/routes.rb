@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :itineraries do
     resources :destinations
   end
+
+  resources :likes, only: %i[create destroy]
   # Defines the root path route ("/")
   # root "posts#index"
 end

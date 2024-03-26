@@ -9,13 +9,10 @@
     <% else %>
       <p>Travel time could not be calculated</p>
     <% end %>
-
-
   <%= render partial: 'destination_card', locals: { d: d, i: i }%>
   </div>
   <div class="card-itinerary background-light-grey d-flex flex-column m-1">
   <%= render partial: 'travel_time', locals: { d: d, i: i } %>
-
 <% elsif i < @itinerary.destinations.size - 1 %>
 
   <%= render partial: 'destination_card', locals: { d: d, i: i } %>
