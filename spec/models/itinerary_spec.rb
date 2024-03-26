@@ -29,6 +29,13 @@ RSpec.describe Itinerary, type: :model do
     end
   end
 
+  context "associations" do
+    it "should be linked to one or many destinations" do
+      destination = Destination.create(city: "Paris", staying_time: 5, itinerary: @itinerary)
+      expect(@itinerary.destinations.include?(destination)).to eq(true)
+    end
+  end
+
   context "public instance methods" do
     describe "total_staying_time method" do
       it "shoud return the sum of the destinations staying time (integer) associated with the itinerary" do
