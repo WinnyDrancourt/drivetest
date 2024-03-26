@@ -1,8 +1,13 @@
+<div class="jumbotron background-image-banner d-flex align-items-center justify-content-center">
+  <div class="background-sand text-dark rounded text-center w-50">
+  <h1>See all of our members' Roadtrips!</h1>
+  </div>
+  </div>
 <div class="text-center">
-<h1>See all of our members' Roadtrips!</h1>
+
 </div>
 <!-- Container itineraries card -->
-<div class="d-flex justify-content-center flex-wrap">
+<div class="d-flex justify-content-center flex-wrap mt-5">
     <% @itineraries.each do |i| %>
       <div class="mb-4 me-4">
         <%= render partial: '/layouts/itinerary', locals: { i: i}%>

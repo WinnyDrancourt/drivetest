@@ -2,19 +2,30 @@
   <main>
     <div class="jumbotron background-image-jumbotron d-flex align-items-center justify-content-center">
       <div class="background-sand mb-5 p-1 d-flex flex-row rounded">
-        <div class="m-2"><button class="button-card-large">
-      <div class="text">
-      <span><%= link_to "Create the roadtrip of your dreams !", new_itinerary_path, class: "text-dark text-decoration-none" %></span>
-      </div>
-      <div class="clone">
-      <span><%= link_to "Create the roadtrip of your dreams !", new_itinerary_path, class: "text-dark text-decoration-none" %></span>
-      </div>
-      <svg stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="20px">
-      <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
-      </svg>
-    </button></div>
+        <div class="m-2">    <button class="cta">
+        <span class="hover-underline-animation"><%= link_to "Create the roadtrip of your dreams !", new_itinerary_path, class: "text-dark text-decoration-none" %></span>
+        <svg
+          id="arrow-horizontal"
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="10"
+          viewBox="0 0 46 16"
+        >
+          <path
+            id="Path_10"
+            data-name="Path 10"
+            d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+            transform="translate(30)"
+          ></path>
+        </svg>
+      </button></div>
       </div>
     </div>
+
+
+
+  
+
 
         <!-- Container itineraries card -->
         <div class="d-flex justify-content-center my-2">

@@ -1,7 +1,7 @@
 <body>
 <main>
   <div class="d-flex justify-content-center h-100">
-    <div class="d-flex card card-form mt-5 background-green col-md-4 offset-md-3 col-sm-10 offset-sm-1 col-12 align-items-center ms-0">
+    <div class="d-flex card card-form mt-5 background-sand shadow border-0 col-md-4 offset-md-3 col-sm-10 offset-sm-1 col-12 align-items-center ms-0">
       <p class="form-title">Sign in to your account</p>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field mb-3">
@@ -20,7 +20,7 @@
         <% end %>
 
         <div class="d-flex mt-2 justify-content-center">
-          <%= f.submit "Log in", class: "button-primary" %>
+          <%= f.submit "Log in", class: "btn background-blue rounded shadow border-0" %>
         </div>
       <% end %>
       <div >

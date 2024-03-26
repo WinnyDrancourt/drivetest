@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center mt-5">
-  <div class="d-flex card card-form mt-5 background-green col-md-4 offset-md-3 col-sm-10 offset-sm-1 col-12 align-items-center ms-0">
+  <div class="d-flex card card-form mt-5 background-sand border-0 shadow col-md-4 offset-md-3 col-sm-10 offset-sm-1 col-12 align-items-center ms-0">
     <p class="form-title">Sign up account</p>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages" , resource: resource %>
@@ -37,7 +37,7 @@
       </div>
 
       <div class="actions d-flex justify-content-center">
-        <%= f.submit "Sign up", class: "button-primary" %>
+        <%= f.submit "Sign up", class: "btn background-blue rounded shadow border-0" %>
       </div>
     <% end %>
     <%= render "devise/shared/links" %>
