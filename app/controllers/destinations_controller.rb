@@ -1,5 +1,6 @@
 class DestinationsController < ApplicationController
   before_action :set_destination, only: %i[edit update]
+  before_action :redirect_to_root, only: :show
 
   def new
     @itinerary = Itinerary.find(params[:itinerary_id])
@@ -15,6 +16,11 @@ class DestinationsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    #Not granting access to a destination page
+    #Created method to redirect to home page if user decides to use urls to access page
   end
 
   def edit; end
@@ -35,5 +41,10 @@ class DestinationsController < ApplicationController
 
   def destination_params
     params.require(:destination).permit(:city, :notes, :staying_time)
+  end
+
+  def redirect_to_root
+    flash[:alert] = "You can't access this page"
+    redirect_to root_path
   end
 end

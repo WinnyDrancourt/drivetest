@@ -1,15 +1,19 @@
 class ItinerariesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @itineraries = Itinerary.all.sort_by(&:count_likes).reverse
   end
 
   def show
-    @like = @user.likes.find_by(itinerary_id: @itinerary.id)
-    return unless @itinerary.nil?
-
-    flash[:alert] = "Itinerary doesn't exist yet!"
-    redirect_to root_path
-    nil
+    unless @itinerary.nil?
+      if user_signed_in? 
+        @like = current_user.likes.find_by(itinerary_id: @itinerary.id)
+      end
+    else
+      flash[:alert] = "Itinerary doesn't exist yet!"
+      redirect_to root_path
+    end
   end
 
   def new
