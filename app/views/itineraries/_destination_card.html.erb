@@ -6,7 +6,9 @@
     <p>City: <%= d.city %></p> 
     <p>Notes: <%= d.notes %></p>
     <p>Staying time: <%= d.staying_time %></p>
-  <%= link_to "Edit Destination", edit_itinerary_destination_path(@itinerary, @itinerary.destinations[i]), class:"btn btn-secondary background-sand text-dark border-0"%>
-</div>
+  <% if current_user%>  
+    <%= link_to "Edit Destination", edit_itinerary_destination_path(@itinerary, @itinerary.destinations[i]), class:"btn btn-secondary background-sand text-dark border-0"%>
+  <%end%>
+ </div>
 
 <%= javascript_include_tag 'static_map' %>

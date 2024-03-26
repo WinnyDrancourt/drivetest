@@ -58,12 +58,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[last_name first_name zipcode city])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[pseudo])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[last_name first_name zipcode city])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[last_name pseudo first_name zipcode city])
   end
 
   def set_coordinates(user)
@@ -75,7 +75,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :city, :email, :password, :password_confirmation, :zipcode)
+    params.require(:user).permit(:first_name, :pseudo, :last_name, :city, :email, :password, :password_confirmation, :zipcode)
   end
 
   # The path used after sign up.
