@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
   before_action :redirect_to_root, only: :show
+  
   def create
     @like = @user.likes.new(like_params)
     flash[:notice] = @like.errors.full_messages.to_sentence unless @like.save

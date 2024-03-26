@@ -1,6 +1,7 @@
 class DestinationsController < ApplicationController
   before_action :set_destination, only: %i[edit update]
   before_action :redirect_to_root, only: :show
+  before_action :authenticate_user!
 
   def new
     @itinerary = Itinerary.find(params[:itinerary_id])

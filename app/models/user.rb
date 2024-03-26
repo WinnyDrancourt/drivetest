@@ -6,8 +6,6 @@ class User < ApplicationRecord
   has_many :itineraries
   has_many :likes, dependent: :destroy
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :zipcode, presence: true
-  validates :city, presence: true
+  validates :pseudo, presence: true
+  
 end

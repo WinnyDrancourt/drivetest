@@ -1,9 +1,11 @@
 <div class="jumbotron background-image-banner d-flex align-items-center justify-content-center">
   <div class="background-sand text-dark rounded text-center w-50">
-    <h1><%= @itinerary.title %>'s roadtrip by <%= link_to "#{@itinerary.user.first_name}", user_path(@itinerary.user), class: "text-dark" %></h1>
+    <h1><%= @itinerary.title %>'s roadtrip by <%= link_to "#{@itinerary.user.pseudo}", user_path(@itinerary.user), class: "text-dark" %></h1>
     <p>From <%= @itinerary.start_date.strftime("%d/%m/%Y") %> to <%= @itinerary.end_date.strftime("%d/%m/%Y") %></p>
     <p>Total days: <%= @itinerary.total_staying_time %> days</p>
-    <%= link_to "Edit Itinerary", edit_itinerary_path(@itinerary), class:" text-dark"%>
+    <%if current_user%>
+      <%= link_to "Edit Itinerary", edit_itinerary_path(@itinerary), class:" text-dark"%>
+    <%end%>
     <!-- Likes -->
     <div class="d-flex justify-content-center">
       <p><%= @itinerary.likes.count %><%= (@itinerary.likes.count) == 0 || 1? 'Like' : 'Likes' %></p>
@@ -20,7 +22,9 @@
   </div>
   </div>
   <div class="d-flex justify-content-center">
-  <%= link_to "Add destination", new_itinerary_destination_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0 shadow mt-1 w-25"%>
+  <%if current_user%>
+    <%= link_to "Add destination", new_itinerary_destination_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0 shadow mt-1 w-25"%>
+  <%end%>
   </div>
 <div class="d-flex flex-wrap m-5 text-center justify-content-center ">
 <% @itinerary.destinations.each_with_index do |d, i| %>
