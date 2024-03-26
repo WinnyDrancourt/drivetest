@@ -8,11 +8,13 @@
     <div class="d-flex justify-content-center">
       <p><%= @itinerary.likes.count %><%= (@itinerary.likes.count) == 0 || 1? 'Like' : 'Likes' %></p>
       <div class="ms-2">
+      <%if current_user%>
         <% if @like.nil? %>
           <%= button_to "Like", likes_path, params: { like: {itinerary_id: @itinerary.id}}, method: :post %>
         <% else %>
           <%= button_to "Unlike", like_path(@like), method: :delete %>
         <% end %>
+      <%end%>
       </div>
     </div>
   </div>
