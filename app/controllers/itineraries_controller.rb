@@ -1,18 +1,20 @@
 class ItinerariesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: %i[index show]
 
   def index
     @itineraries = Itinerary.all.sort_by(&:count_likes).reverse
   end
 
   def show
-    unless @itinerary.nil?
-      if user_signed_in? 
-        @like = current_user.likes.find_by(itinerary_id: @itinerary.id)
-      end
-    else
+    if @itinerary.nil?
       flash[:alert] = "Itinerary doesn't exist yet!"
       redirect_to root_path
+    elsif user_signed_in?
+      @like = current_user.likes.find_by(itinerary_id: @itinerary.id)
+      @coordinates = {}
+      @itinerary.destinations.each_with_index do |destination, index|
+        @coordinates[index] = get_coordinate(destination.city)
+      end
     end
   end
 
@@ -50,21 +52,6 @@ class ItinerariesController < ApplicationController
     redirect_to itineraries_path
   end
 
-  def calculate_travel_time(origin, destination)
-    origin_coord = Geocoder.search(origin.city).first.coordinates
-    destination_coord = Geocoder.search(destination.city).first.coordinates
-
-    response = mapbox.directions([origin_coord, destination_coord], profile: 'driving')
-    puts response.inspect
-    @travel_time = response.routes[-1].legs[0].duration
-
-    hours = travel_time / 3599
-    minutes = (travel_time % 3599) / 60
-    seconds = travel_time % 59
-
-    { hours:, minutes:, seconds: }
-  end
-
   private
 
   def itinerary_params
@@ -94,7 +81,8 @@ class ItinerariesController < ApplicationController
     @stay = @itinerary.total_staying_time
   end
 
-  def mapbox
-    @mapbox ||= Mapbox::Directions.new(access_token: ENV['MAPBOX_ACCESS_TOKEN'])
+  def get_coordinate(city)
+    result = Geocoder.search(city).first
+    [result.latitude, result.longitude] if result
   end
 end
