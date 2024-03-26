@@ -1,11 +1,14 @@
 <div class="rounded-bottom background-light-grey d-flex flex-column border-top">
-    <div class="cityMapContainer_<%= i %>"></div>
+  <div id="cityMapContainer_<%= i %>">
+    <div class="city_<%= i %>"><p><%= @coordinates[i] %></p></div>
+  </div>
     <h6 class="fw-bold">About destination: </h6>
-    <div class="city"><p>City: <%= d.city %></p></div>
+    <p>City: <%= d.city %></p> 
     <p>Notes: <%= d.notes %></p>
     <p>Staying time: <%= d.staying_time %></p>
   <% if current_user%>  
     <%= link_to "Edit Destination", edit_itinerary_destination_path(@itinerary, @itinerary.destinations[i]), class:"btn btn-secondary background-sand text-dark border-0"%>
   <%end%>
-  </div>
+ </div>
 
+<%= javascript_include_tag 'static_map' %>

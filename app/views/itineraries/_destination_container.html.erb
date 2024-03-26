@@ -1,23 +1,18 @@
 <!-- Card for travel time between User city and first destinations -->
 
 <% if i == 0 %>
-<div class="card-itinerary background-light-grey d-flex flex-column m-1">
+<div class="card-itinerary background-light-grey d-flex flex-column m-1 justify-content-between">
     <p><%= i +1 %></p>
     <p>From <%= @itinerary.user.city %> to <%= d.city %>:</p>
-    <% if @travel_time.present? %>
-      <p>Travel time: <%= "#{travel_time[:hours]} hours #{travel_time[:minutes]} minutes #{travel_time[:seconds]} seconds" %></p>
-    <% else %>
-      <p>Travel time could not be calculated</p>
-    <% end %>
   <%= render partial: 'destination_card', locals: { d: d, i: i }%>
   </div>
-  <div class="card-itinerary background-light-grey d-flex flex-column m-1">
+  <div class="card-itinerary background-light-grey d-flex flex-column m-1 justify-content-between">
   <%= render partial: 'travel_time', locals: { d: d, i: i } %>
 <% elsif i < @itinerary.destinations.size - 1 %>
 
   <%= render partial: 'destination_card', locals: { d: d, i: i } %>
   </div>
-  <div class="card-itinerary background-light-grey d-flex flex-column m-1">
+  <div class="card-itinerary background-light-grey d-flex flex-column m-1 justify-content-between">
   <%= render partial: 'travel_time', locals: { d: d, i: i } %>
 
 <% else %>
@@ -26,5 +21,4 @@
 </div>
 <% end %>
 
-<%= javascript_include_tag 'static_map' %>
 

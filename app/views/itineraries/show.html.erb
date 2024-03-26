@@ -34,4 +34,8 @@
 </div>
 
 
-  <div class="filler"></div>
+<div class="filler d-flex justify-content-end align-items-end">
+    <%= link_to "Edit Itinerary", edit_itinerary_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0 shadow m-2" %>
+    <%= button_to "Delete Itinerary", itinerary_path(@itinerary), method: :delete, class:"btn btn-secondary background-sand text-dark border-0 shadow m-2" %>
+</div>
+
