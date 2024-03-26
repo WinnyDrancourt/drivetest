@@ -5,53 +5,56 @@
   mapboxgl.accessToken = apiKey;
   // End Api Key
 
-  const cities = document.querySelectorAll(".city");
-  cities.forEach(function (cityElement, index) {
-    const city = cityElement.textContent;
-    console.log(city);
-    const containerId = `cityMapContainer_${index}`;
-    // Call function to generate static map
-    generateStaticMap(city, containerId);
+  function generateStaticMapURL(coordinates) {
+    // Replace 'your-access-token' with your Mapbox access token
+    var accessToken = mapboxgl.accessToken;
+
+    // Debugging: Log the coordinates array to check its content
+
+    // Extracting latitude and longitude from the coordinates
+    var latitude = parseFloat(coordinates[0].replace("[", ""));
+    var longitude = parseFloat(coordinates[1].replace("]", ""));
+
+    // Debugging: Log latitude and longitude to check their values
+
+    var staticMapURL =
+      "https://api.mapbox.com/styles/v1/mapbox/outdoors-v12/static/pin-s+ff0000(" +
+      longitude +
+      "," +
+      latitude +
+      ")/" +
+      longitude +
+      "," +
+      latitude +
+      ",12,0,0/250x250?access_token=" +
+      accessToken;
+
+    return staticMapURL;
+  }
+
+  // Generate static map for each city map container
+  document.addEventListener("DOMContentLoaded", function () {
+    var cityContainers = document.querySelectorAll('[id^="cityMapContainer_"]');
+
+    cityContainers.forEach(function (container) {
+      var cityElement = container.querySelector("p");
+
+      if (cityElement) {
+        var coordinates = cityElement.textContent.split(", ");
+        var staticMapURL = generateStaticMapURL(coordinates);
+
+        // Create a new image element for the static map
+        var mapImage = new Image();
+        mapImage.src = staticMapURL;
+        mapImage.alt = "Static Map";
+
+        // Remove existing map images from the container
+        container.innerHTML = "";
+
+        // Append the map image to the city map container
+        container.appendChild(mapImage);
+      } else {
+      }
+    });
   });
-
-  function generateStaticMap(city, containerId) {
-    const apiKey = mapboxgl.accessToken;
-    const mapWidth = 200;
-    const mapHeight = 200;
-    const zoom = 11;
-
-    // Construct the URL for static map image
-    let url = `https://api.mapbox.com/styles/v1/mapbox/outdoors-v12/static/`;
-
-    // If city is coordinates, use them directly
-    if (/^-?\d+(\.\d+)?,-?\d+(\.\d+)?$/.test(city)) {
-      url += `${city},${zoom}/${mapWidth}x${mapHeight}?access_token=${apiKey}`;
-      displayStaticMap(url, containerId);
-    } else {
-      // Otherwise, use geocoding API to get coordinates for the city
-      const geocodingUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(city)}.json?access_token=${apiKey}`;
-
-      fetch(geocodingUrl)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Geocoding request failed");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          if (data.features && data.features.length > 0) {
-            const coordinates = data.features[0].center;
-            url += `${coordinates[0]},${coordinates[1]},${zoom}/${mapWidth}x${mapHeight}?access_token=${apiKey}`;
-            displayStaticMap(url, containerId);
-          } else {
-            console.error("No features found for the provided city.");
-          }
-        })
-        .catch((error) => console.error("Error:", error));
-    }
-  }
-  function displayStaticMap(url, containerId) {
-    const mapContainer = document.getElementById(containerId);
-    mapContainer.innerHTML = `<img src="${url}" alt="Static Map">`;
-  }
 })();

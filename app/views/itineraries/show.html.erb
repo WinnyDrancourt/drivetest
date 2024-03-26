@@ -3,7 +3,6 @@
     <h1><%= @itinerary.title %>'s roadtrip by <%= link_to "#{@itinerary.user.first_name}", user_path(@itinerary.user), class: "text-dark" %></h1>
     <p>From <%= @itinerary.start_date.strftime("%d/%m/%Y") %> to <%= @itinerary.end_date.strftime("%d/%m/%Y") %></p>
     <p>Total days: <%= @itinerary.total_staying_time %> days</p>
-    <%= link_to "Edit Itinerary", edit_itinerary_path(@itinerary), class:" text-dark"%>
     <!-- Likes -->
     <div class="d-flex justify-content-center">
       <p><%= @itinerary.likes.count %><%= (@itinerary.likes.count) == 0 || 1? 'Like' : 'Likes' %></p>
@@ -30,4 +29,8 @@
 </div>
 
 
-  <div class="filler"></div>
+<div class="filler d-flex justify-content-end align-items-end">
+    <%= link_to "Edit Itinerary", edit_itinerary_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0 shadow m-2" %>
+    <%= button_to "Delete Itinerary", itinerary_path(@itinerary), method: :delete, class:"btn btn-secondary background-sand text-dark border-0 shadow m-2" %>
+</div>
+

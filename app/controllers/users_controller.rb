@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   def show
+    @user_likes = @user.likes.includes(:itinerary).where(user_id: @user.id)
+    @other_user_likes = @user_likes.reject { |like| like.itinerary.user == @user }
     if params[:id].present?
       begin
         @user = User.find(params[:id])
