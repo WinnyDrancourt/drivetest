@@ -1,11 +1,12 @@
 <div class="card-user overflow-hidden">
-    <div id="cityMapContainer" class="w-100 d-flex justify-content-center"></div>
-    <div id="coordinates_user" class="d-flex justify-content-around">
-      <% if @user.latitude.nil? || @user.longitude.nil? %>
+    <div class="w-100 d-flex justify-content-center"></div>
+    <div class="d-flex justify-content-around">
+      <% if @user.city.nil? %>
         <p> If you want to see your map and personalize your Trip, edit your profile with City, and ZipCode</p>
       <% else %>
-        <p><u>Lat :</u> <i><%= @user.latitude %></i></p>
-        <p><u>Lgt :</u> <i><%= @user.longitude %></i></p>
+        <div id="cityMapContainer">
+          <div id="city"><%= @coordinates %></div>
+        </div>  
       <% end %>
     </div> 
   <div class="d-flex flex-column text-center">
