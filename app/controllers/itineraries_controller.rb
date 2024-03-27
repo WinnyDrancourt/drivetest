@@ -1,27 +1,25 @@
 class ItinerariesController < ApplicationController
-  before_action :set_itinerary, only: [:edit, :show]
+  before_action :set_itinerary, only: %i[edit show]
   before_action :authenticate_user!, except: %i[index show]
-
 
   def index
     @itineraries = Itinerary.all.sort_by(&:count_likes).reverse
   end
 
   def edit
-    unless @itinerary.user == current_user
-      redirect_to root_path
-    end
+    return if @itinerary.user == current_user
+
+    redirect_to root_path
   end
 
   def show
     @coordinates = {}
-      @itinerary.destinations.each_with_index do |destination, index|
-        @coordinates[index] = get_coordinate(destination.city)
-      end
-    if user_signed_in?
-      @like = current_user.likes.find_by(itinerary_id: @itinerary.id)
-   
+    @itinerary.destinations.each_with_index do |destination, index|
+      @coordinates[index] = get_coordinate(destination.city)
     end
+    return unless user_signed_in?
+
+    @like = current_user.likes.find_by(itinerary_id: @itinerary.id)
   end
 
   def new
@@ -59,7 +57,7 @@ class ItinerariesController < ApplicationController
       redirect_to itineraries_path
     else
       redirect_to root_path
-    end  
+    end
   end
 
   private
@@ -93,10 +91,8 @@ class ItinerariesController < ApplicationController
 
   def get_coordinate(city)
     result = Geocoder.search(city).first
-    if result
-      [result.latitude, result.longitude] 
-    else
-      [0.0, 0.0]
-    end
+    return unless result
+
+    [result.latitude, result.longitude]
   end
 end
