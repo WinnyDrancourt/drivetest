@@ -20,14 +20,14 @@ class DestinationsController < ApplicationController
   end
 
   def show
-    #Not granting access to a destination page
-    #Created method to redirect to home page if user decides to use urls to access page
+    # Not granting access to a destination page
+    # Created method to redirect to home page if user decides to use urls to access page
   end
 
   def edit
-    unless current_user
-      redirect_to_root
-    end
+    return if current_user
+
+    redirect_to_root
   end
 
   def update
@@ -36,6 +36,13 @@ class DestinationsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @itinerary_find = Itinerary.find(params[:itinerary_id])
+    @destination_find = @itinerary_find.destinations.find(params[:id])
+    @destination_find.destroy
+    redirect_to @itinerary_find, notice: 'Destination was successfully updated.'
   end
 
   private
