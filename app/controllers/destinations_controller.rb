@@ -1,6 +1,6 @@
 class DestinationsController < ApplicationController
   before_action :set_destination, only: %i[edit update]
-  before_action :redirect_to_root, only: :show
+  before_action :redirect_to_root, only: %i[edit show]
   before_action :authenticate_user!
 
   def new
@@ -24,7 +24,10 @@ class DestinationsController < ApplicationController
     #Created method to redirect to home page if user decides to use urls to access page
   end
 
-  def edit; end
+  def edit
+    #Not granting access to a destination page
+    #Created method to redirect to home page if user decides to use urls to access page
+  end
 
   def update
     if @destination.update(destination_params)
