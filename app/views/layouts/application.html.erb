@@ -28,6 +28,7 @@
 
       <title><%= yield :title %> | Dreamdriver</title>
       <meta name="description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : 'Description par défaut de la page' %>">
+      <%= favicon_link_tag 'favicon.png' %>
   </head>
 
   <header>
