@@ -1,38 +1,46 @@
 <% content_for :title, "Edit destination" %>
 <% content_for :meta_description, "Edit my destination" %>
 
-<h1>Edit Destination</h1>
+<div class="background-image-banner d-flex align-items-center justify-content-center">
+<div class="background-sand text-dark p-1 d-flex flex-row rounded">
+  <h1>Edit my destination</h1>
+</div>
+</div>
 
-<%= form_with(model: [@itinerary, @destination], local: true) do |form| %>
-  <% if @destination.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@destination.errors.count, "error") %> prohibited this destination from being saved:</h2>
 
-      <ul>
-      <% @destination.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<body>
+<main>
+  <div class="d-flex justify-content-center h-100">
+    <div class="d-flex card card-form mt-5 background-sand shadow border-0 col-md-3 offset-md-3 col-sm-10 offset-sm-1 col-12 align-items-center ms-0">
+    <%= form_with(model: [@itinerary, @destination], local: true) do |form| %>
+      <% if @destination.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@destination.errors.count, "error") %> prohibited this destination from being saved:</h2>
+    
+          <ul>
+          <% @destination.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
+    
+
+      <p class="text-center mb-0">City</p>
+        <%= form.text_field :city, class: "text-center" %>
+    
+        <p class="text-center mb-0">Notes</p>
+        <%= form.text_area :notes, class: "w-100 text-center" %>
+
+        <p class="text-center mb-0">Staying time</p>
+        <%= form.number_field :staying_time, class: "text-center" %>
+    
+      <div class="actions">
+      <%= form.submit class: "w-100 my-3 rounded background-light-grey border-0 shadow-sm" %>
+      </div>
+    <% end %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
   </div>
-
-  <div class="field">
-    <%= form.label :notes %>
-    <%= form.text_area :notes %>
-  </div>
-
-  <div class="field">
-    <%= form.label :staying_time %>
-    <%= form.text_field :staying_time %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</main>
+</body>
 

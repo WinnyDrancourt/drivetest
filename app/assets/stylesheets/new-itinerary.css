@@ -38,4 +38,17 @@
     height: 40vh !important;
     width: 100vw !important;
   }
+
+  .mquery-img-presentation {
+    display: flex;
+    justify-content: center;
+    width: 100vh;
+    height: auto;
+    margin: 0 !important;
+  }
+
+  .img-presentation {
+    width: 100vh;
+    height: auto;
+  }
 }
