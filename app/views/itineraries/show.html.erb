@@ -2,8 +2,8 @@
 <% content_for :meta_description, "Show of one Roadtrip" %>
 
 <body>
-  <div class="jumbotron background-image-banner d-flex align-items-center justify-content-center">
-    <div class="background-sand text-dark rounded text-center w-50">
+  <div class="jumbotron background-image-banner d-flex align-items-center justify-content-center py-5">
+    <div class="background-sand text-dark rounded text-center p-2">
       <h1><%= @itinerary.title %>'s roadtrip by <%= link_to "#{@itinerary.user.pseudo}",
           user_path(@itinerary.user), class: "text-dark" %></h1>
       <p>From <%= @itinerary.start_date.strftime("%d/%m/%Y") %> to <%= @itinerary.end_date.strftime("%d/%m/%Y") %></p>
@@ -69,7 +69,7 @@
   </div>
 
   <script type="application/ld+json">
-  <%= itinerary_jsonld(itinerary) %>
+  <%= itinerary_jsonld(@itinerary) %>
 </script>
 
 </body>
