@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   before_action :redirect_to_root, only: :show
-  
+
   def create
     @like = @user.likes.new(like_params)
     flash[:notice] = @like.errors.full_messages.to_sentence unless @like.save
@@ -21,10 +21,9 @@ class LikesController < ApplicationController
   end
 
   def show
-    #Not granting access to a like page
-    #Created method to redirect to home page if user decides to use urls to access page
+    # Not granting access to a like page
+    # Created method to redirect to home page if user decides to use urls to access page
   end
-
 
   private
 
@@ -36,5 +35,4 @@ class LikesController < ApplicationController
     flash[:alert] = "You can't access this page"
     redirect_to root_path
   end
-
 end

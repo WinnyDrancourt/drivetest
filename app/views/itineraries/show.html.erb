@@ -64,7 +64,11 @@
   <% end %>
   <div class="d-flex flex-wrap text-center justify-content-center mb-5">
     <% @itinerary.destinations.each_with_index do |d, i| %>
-    <%= render partial: 'destination_container', locals: { d: d, i: i } %>
+      <% if @itinerary.destinations.size == 1 %>
+        <%= render partial: 'destination_container', locals: { d: d, i: i } %>
+      <% else %>
+        <%= render partial: 'destinations_container', locals: { d: d, i: i } %>
+      <% end %>
     <% end %>
   </div>
 
