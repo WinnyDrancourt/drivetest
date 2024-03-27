@@ -1,9 +1,12 @@
+<% content_for :title, "New Roadtrip" %>
+<% content_for :meta_description, "My new Road-trip !" %>
+
 <body>
 <main>
-  <div class="row">
+  <div class="row g-0">
     <div class="col-12 col-lg-3 col-md-3 col-sm-12">
         <div class="background-green scrollable-container-new-iti d-flex justify-content-center pt-2" id="form-container-iti">
-              <%= form_for @itinerary, html: {class: 'itinerary_form_with_destinations'} do |f| %>
+              <%= form_for @itinerary, html: {class: 'itinerary_form_with_destinations d-flex flex-column align-items-center'} do |f| %>
               <%= render partial: 'form_fields_with_variable_destinations', locals: { f: f} %>
         </div>
         <div class="align-self-end">

@@ -1,3 +1,6 @@
+<% content_for :title, "Roadtrip" %>
+<% content_for :meta_description, "Show of one Roadtrip" %>
+
 <body>
   <div class="jumbotron background-image-banner d-flex align-items-center justify-content-center">
     <div class="background-sand text-dark rounded text-center w-50">
@@ -8,7 +11,6 @@
       <!-- Likes -->
       <div class="d-flex justify-content-end align-items-center">
         <p><%= @itinerary.likes.count %> </p>
-
         <% if current_user %>
         <% if @like.nil? %>
         <%= button_to likes_path, params: { like: {itinerary_id: @itinerary.id}}, method: :post, class: "bg-transparent border-0 checkbox" do %>
@@ -42,7 +44,7 @@
                     <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z">
                     </path>
                 </svg>
-                
+
             </div>
         </div>
           <% end %>
