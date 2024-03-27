@@ -29,17 +29,20 @@
     </div>
   </div>
 </div>
-<div class="container-fluid">
-  <div class="text-center">
-    <h2>Mes RoadTrips Likes : <%=@other_user_likes.count %></h2>
+<%if current_user == User.find_by(id: params[:id])%>
+  <div class="container-fluid">
+    <div class="text-center">
+      <h2>Mes RoadTrips Likes : <%=@other_user_likes.count %></h2>
+    </div>
+    <div class="row">
+      <% @other_user_likes.each do |l| %>
+        <%i = l.itinerary%>
+        <div class="col d-flex flex-wrap justify-content-center mb-2 me-2">
+        <%= render partial: '/layouts/itinerary', locals: { i: i}%>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="row">
-    <% @other_user_likes.each do |i| %>
-      <div class="col d-flex flex-wrap justify-content-center mb-2 me-2">
-      <%= render partial: '/layouts/itinerary', locals: { i: i}%>
-      </div>
-    <% end %>
-  </div>
-</div>
+<%end%>
 
 <div class="filler"></div>

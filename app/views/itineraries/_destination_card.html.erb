@@ -7,7 +7,7 @@
     <p>City: <%= d.city %></p> 
     <p class="text-break">Notes: <%= d.notes %></p>
     <p>Staying time: <%= d.staying_time %></p>
-  <% if current_user%>  
+  <% if current_user == @itinerary.user%>  
     <%= link_to "Edit Destination", edit_itinerary_destination_path(@itinerary, @itinerary.destinations[i]), class:"btn btn-secondary background-sand text-dark border-0"%>
   <%end%>
  </div>
