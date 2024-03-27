@@ -2,7 +2,7 @@
   background-image: url("assets/baniere-fond-topo");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 25vh;
+  min-height: 25vh;
 }
 
 .card-user {
