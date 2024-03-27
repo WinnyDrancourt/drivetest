@@ -55,24 +55,19 @@
   </div>
   <%if current_user == @itinerary.user %>
     <div class="d-flex justify-content-center">
-      <%= link_to "Edit Itinerary", edit_itinerary_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0 shadow m-2" %>
+      <%= link_to "Edit Itinerary", edit_itinerary_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0 shadow m-2 btn-hover" %>
     
-      <%= link_to "Add destination", new_itinerary_destination_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0 shadow m-2" %>
+      <%= link_to "Add destination", new_itinerary_destination_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0 shadow m-2 btn-hover" %>
       
-      <%= button_to "Delete Itinerary", itinerary_path(@itinerary), method: :delete, class:"btn btn-secondary background-sand text-dark border-0 shadow m-2" %>
+      <%= button_to "Delete Itinerary", itinerary_path(@itinerary), method: :delete, class:"btn btn-secondary background-sand text-dark border-0 shadow m-2 btn-hover" %>
     </div>
   <% end %>
-  <div class="d-flex flex-wrap text-center justify-content-center ">
+  <div class="d-flex flex-wrap text-center justify-content-center mb-5">
     <% @itinerary.destinations.each_with_index do |d, i| %>
     <%= render partial: 'destination_container', locals: { d: d, i: i } %>
     <% end %>
   </div>
-  <% if @itinerary.user == current_user %>
-    <div class="filler d-flex justify-content-end align-items-end">
-      <%= link_to "Edit Itinerary", edit_itinerary_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0 shadow m-2" %>
-      <%= button_to "Delete Itinerary", itinerary_path(@itinerary), method: :delete, class:"btn btn-secondary background-sand text-dark border-0 shadow m-2" %>
-    </div>
-  <% end %>
+
 
 
 </body>

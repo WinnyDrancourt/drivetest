@@ -1,13 +1,15 @@
 <% content_for :title, "Edit" %>
 <% content_for :meta_description, "Edit my Roadtrip" %>
+
+
+<body>
+<main>
 <div class="background-image-banner d-flex align-items-center justify-content-center">
 <div class="background-sand text-dark p-1 d-flex flex-row rounded">
   <h1>Edit my itinerary</h1>
 </div>
 </div>
 
-<body>
-<main>
   <div class="d-flex justify-content-center h-100">
     <div class="d-flex card card-form mt-5 background-sand shadow border-0 col-md-3 offset-md-3 col-sm-10 offset-sm-1 col-12 align-items-center ms-0">
     <%= form_for @itinerary do |f| %>

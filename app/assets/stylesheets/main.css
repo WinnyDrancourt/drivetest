@@ -83,6 +83,26 @@ main {
   background-color: #d9f4ff !important;
 }
 
+
+.btn-hover:hover,
+.btn-hover:focus {
+ border-color: rgba(0, 0, 0, 0.15);
+ box-shadow: rgba(0, 0, 0, 0.2) 0 4px 12px;
+ color: rgba(0, 0, 0, 0.65);
+}
+
+.btn-hover:hover {
+ transform: translateY(-1px);
+}
+
+.btn-hover:active {
+ background-color: #F0F0F1;
+ border-color: rgba(0, 0, 0, 0.15);
+ box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+ color: rgba(0, 0, 0, 0.65);
+ transform: translateY(0);
+}
+
 .card-itinerary {
   border-radius: 10px;
   width: 250px;
@@ -127,7 +147,8 @@ main {
   content: "";
   position: absolute;
   height: 2px;
-  bottom: 0;
+  bottom: 1vh;
+  color: #FA9270;
   left: 0;
   width: 100%;
   transform: scaleX(0);
@@ -190,8 +211,11 @@ main {
 }
 
 .button-card:hover svg {
+  color: #FA9270;
   transform: translateY(-50%) rotate(-90deg);
 }
+
+
 
 .cta {
   border: none;

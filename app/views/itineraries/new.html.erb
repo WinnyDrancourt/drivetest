@@ -5,13 +5,13 @@
 <main>
   <div class="row g-0">
     <div class="col-12 col-lg-3 col-md-3 col-sm-12">
-        <div class="background-green scrollable-container-new-iti d-flex justify-content-center pt-2" id="form-container-iti">
+        <div class="background-light-grey scrollable-container-new-iti d-flex justify-content-center pt-2" id="form-container-iti">
               <%= form_for @itinerary, html: {class: 'itinerary_form_with_destinations d-flex flex-column align-items-center'} do |f| %>
               <%= render partial: 'form_fields_with_variable_destinations', locals: { f: f} %>
         </div>
         <div class="align-self-end">
 
-          <%= f.submit "Create itinerary", class: "background-sand border-0 position-itinerary-button" %>
+          <%= f.submit "Create itinerary", class: "background-sand border-0 position-itinerary-button btn-hover" %>
           <% end %>
         </div>
     </div>

@@ -1,9 +1,22 @@
 <% content_for :title, "New destination" %>
 <% content_for :meta_description, "Add a new destination to my Roadtrip" %>
 
+<body>
+<main>
+<div class="background-image-banner d-flex align-items-center justify-content-center">
+<div class="background-sand text-dark p-1 d-flex flex-row rounded">
+  <h1>Add destination</h1>
+</div>
+</div>
+
+<div class="d-flex justify-content-center h-100">
+<div class="d-flex card card-form mt-5 background-sand shadow border-0 col-md-3 offset-md-3 col-sm-10 offset-sm-1 col-12 align-items-center ms-0">
 <%= form_for [@itinerary, @destination] do |f| %>
-<%= render partial: '/itineraries/destination_fields', locals: { f: f } %>
-<%= f.submit "Create itinerary", class: "background-sand border-0 position-itinerary-button" %>
-<% end %>
-    
+    <%= render partial: '/itineraries/destination_fields_bis', locals: { f: f } %>
+    <%= f.submit "Create itinerary", class: "background-light-grey my-3 border-0 rounded w-100" %>
+    <% end %>
+</div>
+</div>
+</main>
+</body>
   
