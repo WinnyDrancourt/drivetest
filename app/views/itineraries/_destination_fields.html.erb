@@ -1,15 +1,15 @@
 <div class ='columns'>
-  <div class="field">
-    <%= f.text_field :city, class: "field-new-iti", placeholder: "Etape"  %>
+  <div class="field ">
+    <%= f.text_field :city, class: "field-new-iti text-center", placeholder: "Etape"  %>
   </div>
 
   <div class="field">
-    <%= f.text_field :notes, class: "field-new-iti", placeholder: "Notes"  %>
+    <%= f.text_field :notes, class: "field-new-iti text-center", placeholder: "Notes"  %>
   </div>
 
   <div class="field">
-    <%= f.label :Duree %><br />
-    <%= f.number_field :staying_time, in: 1..31, step: 1, class: "field-new-iti w-25"%>
+    <%= f.label :Duree, "Duration in day :" %>
+    <%= f.number_field :staying_time, in: 1..31, step: 1, class: "field-new-iti w-25 text-center"%>
   </div>
 
   
@@ -23,4 +23,3 @@
     <% end %>
   <% end %>
 </div>
-

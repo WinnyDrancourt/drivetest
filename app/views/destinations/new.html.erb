@@ -1,3 +1,6 @@
+<% content_for :title, "New destination" %>
+<% content_for :meta_description, "Add a new destination to my Roadtrip" %>
+
 <%= form_for [@itinerary, @destination] do |f| %>
 <%= render partial: '/itineraries/destination_fields', locals: { f: f } %>
 <%= f.submit "Create itinerary", class: "background-sand border-0 position-itinerary-button" %>

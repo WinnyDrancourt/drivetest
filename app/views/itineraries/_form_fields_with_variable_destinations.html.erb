@@ -1,7 +1,12 @@
 
 <div class="field">
-    <%= f.text_field :title, class: "field-new-iti", placeholder: "Title" %>
+    <%= f.text_field :title, class: "field-new-iti text-center", placeholder: "Title" %>
   </div>
+<div class="field">
+    <%= f.label :start_date, "Start date (opt) :" %>
+    <%= f.date_field :start_date, class: "field-new-iti w-50 text-center"%>
+  </div>
+
 
 <%= f.fields_for :destinations do |fd| %>
   <div>
