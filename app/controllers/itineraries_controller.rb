@@ -77,7 +77,8 @@ class ItinerariesController < ApplicationController
     return start_date if destinations_attributes.blank?
 
     stay = destinations_attributes.values.sum { |dest| dest[:staying_time].to_i }
-    start_date + stay.days
+    start_date = start_date.to_date
+    start_date + stay
   end
 
   def default_dates(attr)
