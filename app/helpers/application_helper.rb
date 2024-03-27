@@ -4,6 +4,7 @@ module ApplicationHelper
           "@context": "https://schema.org",
           "@type": "Trip",
           "name": itinerary.title,
+          "datetime": itinerary.start_date,
           "itinerary": {
             "@type": "ItemList",
             "itemListElement": itinerary.destinations.each_with_index.map { |d, i|
