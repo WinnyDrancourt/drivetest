@@ -3,12 +3,9 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before(:each) do 
     @user = User.create(
-    first_name: "John", 
-    last_name: "Doe", 
-    zipcode: "93100", 
-    city: "Montreuil", 
+    pseudo: "Abathur", 
     email: "johndoe@gmail.com", 
-    password: "123446")
+    password: "123456")
   end
 
   context "validation" do
@@ -21,10 +18,7 @@ RSpec.describe User, type: :model do
     describe "#password" do
       it "should not be valid without a 6 chars min password" do
         user = User.create(
-          first_name: "John", 
-          last_name: "Doe", 
-          zipcode: "93100", 
-          city: "Montreuil", 
+          pseudo: "Abathur",
           email: "johndoe@gmail.com", 
           password: "1236")
         expect(user).not_to be_valid
@@ -35,10 +29,7 @@ RSpec.describe User, type: :model do
     describe "#email" do
       it "should not be valid without email" do
         user = User.create(
-          first_name: "John", 
-          last_name: "Doe", 
-          zipcode: "93100", 
-          city: "Montreuil", 
+          pseudo: "Abathur",
           email: "",
           password: "123456")
         expect(user).not_to be_valid
@@ -46,12 +37,9 @@ RSpec.describe User, type: :model do
     end
 
     describe "good user" do
-      it "should be validated if first_name, last_name, zipcode, city exist and if email is unique" do
+      it "should be validated if pseudo exists and if email is unique" do
         user = User.create(
-          first_name: "John", 
-          last_name: "Doe", 
-          zipcode: "93100", 
-          city: "Montreuil", 
+          pseudo: "Aba",  
           email: "johndoe1@gmail.com",
           password: "123456")
         expect(user).to be_valid
