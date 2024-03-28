@@ -8,7 +8,10 @@
     <p class="text-break">Notes: <%= d.notes %></p>
     <p>Staying time: <%= d.staying_time %></p>
   <% if current_user == @itinerary.user%>  
-    <%= link_to "Edit Destination", edit_itinerary_destination_path(@itinerary, @itinerary.destinations[i]), class:"btn btn-secondary background-sand text-dark border-0 btn-hover"%>
+    <div class="d-flex">
+    <%= link_to "Edit Destination", edit_itinerary_destination_path(@itinerary, @itinerary.destinations[i]), class:"btn btn-secondary background-sand text-dark border-0 btn-hover flex-grow-1 aligns-items-center"%>
+    <%= button_to "X", itinerary_destination_path(@itinerary, @itinerary.destinations[i]), method: :delete, class:"btn btn-secondary bg-danger text-dark border-0 shadow btn-hover" %>
+    </div>
   <%end%>
  </div>
 
