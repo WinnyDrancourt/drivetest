@@ -24,4 +24,27 @@ module ApplicationHelper
       }
     }.to_json.html_safe
   end
+
+  def user_jsonld(user)
+    {
+      "@context": 'https://schema.org',
+      "@type": 'Person',
+      "name": "#{user.first_name} #{user.last_name}",
+      "city": user.city,
+      "zipcode": user.zipcode,
+      "pseudo": user.pseudo
+    }.to_json.html_safe
+  end
+
+  def destination_jsonld(destination)
+    {
+      "@context": 'https://schema.org',
+      "@type": 'Place',
+      "name": destination.city,
+      "notes": destination.notes,
+      "stayingTime": destination.staying_time
+    }.to_json.html_safe
+  end
+
+
 end
