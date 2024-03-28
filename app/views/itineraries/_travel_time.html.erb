@@ -1,8 +1,6 @@
-<div class="card-destination-sm background-light-grey border border-primary">
+<div class="card-destination-sm background-light-grey d-flex flex-column">
   <% next_destination = @itinerary.destinations[i + 1] %>
     <p><%= i +2 %></p>
     <p>From <span id="origin"><%= d.city %></span> to <span id="destination"><%= next_destination.city %></span>:</p>
   <div id="travelTime"></div>
 </div>
-
-
