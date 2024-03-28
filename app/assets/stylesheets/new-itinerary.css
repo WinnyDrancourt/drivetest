@@ -33,43 +33,6 @@
   margin-top: 5vh !important;
 }
 
-@media only screen and (max-width: 768px) {
-  #form-container-iti {
-    height: 30vh;
-    width: 100vw;
-  }
 
-  .map-size {
-    height: 40vh !important;
-    width: 100vw !important;
-  }
-
-  .mquery-img-presentation {
-    display: flex;
-    justify-content: center;
-    width: 100vh;
-    height: auto;
-    margin-left: 0 !important;
-  }
-
-  .img-presentation {
-    width: 100vh;
-    height: auto;
-  }
-
-  .mquery-txt-presentation {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: auto;
-    margin: 0 5vw !important;
-  }
-
-  .margin-5 {
-    margin-left: 0 !important;
-    display: flex;
-    justify-content: center;
-  }
-}
 
 
