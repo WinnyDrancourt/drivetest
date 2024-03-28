@@ -1,10 +1,3 @@
-.background-image-banner {
-  background-image: url("assets/baniere-fond-topo");
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 25vh;
-}
-
 .card-user {
   background-color: #fad6c0;
   border-radius: 10px;

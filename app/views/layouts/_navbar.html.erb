@@ -6,11 +6,11 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <div class="btn-group dropend">
+          <div class="btn-group dropdown">
             <button type="button" class="btn btn-secondary background-sand text-dark border-0 dropdown-toggle btn-hover" data-bs-toggle="dropdown" aria-expanded="false">
-              Create/View Roadtrips
+              Create / View Roadtrips
             </button>
-            <ul class="dropdown-menu dropdown-menu-start">
+            <ul class="dropdown-menu dropdown">
               <li><%= link_to "Create a Roadtrip", new_itinerary_path, class: "dropdown-item"%></li>
               <li><%= link_to "Check all Roadtrips", itineraries_path, class: "dropdown-item"%></li>
             </ul>
@@ -23,10 +23,10 @@
         <% end %>
       </div>
       <% if user_signed_in? %>
-        <div class="btn-group dropstart">
+        <div class="btn-group dropdown">
           <!-- Dropdown à gauche -->
-          <button type="button" class="btn btn-secondary background-sand text-dark border-0 dropdown-toggle btn-hover" data-bs-toggle="dropdown" aria-expanded="false">
-            Profile/Logout
+          <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-left background-sand text-dark border-0  btn-hover ps-4" data-bs-toggle="dropdown" aria-expanded="false">
+            Profile / Logout
           </button>
           <ul class="dropdown-menu dropdown-menu-start">
             <li><%= link_to "Profile", user_path(current_user), class: "dropdown-item"%></li>

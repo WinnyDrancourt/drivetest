@@ -3,10 +3,7 @@ require 'rails_helper'
 RSpec.describe Itinerary, type: :model do
   before(:each) do 
     @user = User.create(
-    first_name: "John", 
-    last_name: "Doe", 
-    zipcode: "93100", 
-    city: "Montreuil", 
+    pseudo: "Raynor", 
     email: "johndoe@gmail.com", 
     password: "123446")
 

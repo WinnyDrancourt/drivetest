@@ -9,8 +9,8 @@
     <p><%= i.destinations[0].city %> ➜ <%= i.destinations[-1].city %></p>
   </div>
   <div class="d-flex justify-content-around">
-    <p>Durée : <%= i.destinations.sum(:staying_time)%>Days</p>
-    <p>Etapes: <%= i.destinations.length %></p>
+    <p>Duration : <%= i.destinations.sum(:staying_time)%>days</p>
+    <p>Steps: <%= i.destinations.length %></p>
     <p>Likes: <%= i.likes.count %></p>
   </div>
   <div class="d-flex justify-content-center">
