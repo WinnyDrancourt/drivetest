@@ -1,8 +1,9 @@
 <% content_for :title, "User Profile" %>
 <% content_for :meta_description, "My user profile page" %>
 
-<div class="background-image-banner d-flex align-items-center justify-content-center">
-<div class="background-sand text-dark p-1 d-flex flex-row rounded">
+<div class="banner">
+<%= image_tag("baniere-fond-topo.jpg", alt:'background-jumbotron', :class => "background-image-banner") %>
+<div class="banner-title background-sand text-dark p-1 d-flex flex-row rounded">
   <h1><%= @user.pseudo %> Profile</h1>
 </div>
 </div>
@@ -54,5 +55,3 @@
     </div>
   </div>
 <%end%>
-
-<div class="filler"></div>

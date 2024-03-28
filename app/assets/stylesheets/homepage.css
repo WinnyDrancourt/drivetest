@@ -1,84 +1,103 @@
-.background-image-jumbotron {
-    background-image: url("assets/view-for-jumbotron");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 45vh;
+.banner-jumbotron {
+  position: relative;
+  height: 45vh;
+  overflow: hidden;
+}
+
+.banner {
+  position: relative;
+  height: 25vh;
+  overflow: hidden;
 }
 
 .background-image-banner {
-    background-image: url("assets/baniere-fond-topo");
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 25vh;
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: auto;
+  object-fit: cover;
+}
+
+.banner-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
 
 .img-card {
-    width: 28vw;
-    height: auto;
-    display: flex;
-    justify-content: center;
+  width: 28vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .img-presentation {
-    width: 40vw;
-    height: auto;
+  width: 40vw;
+  height: auto;
 }
 
 .background-image-card {
-    background-image: url("assets/ajaccio");
-    background-color: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.4) 100%);
-    background-size:contain;
-    background-repeat: no-repeat;
-    color: white;
+  background-image: url("assets/ajaccio");
+  background-color: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: white;
 }
 
 .cta {
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
-  
-  .cta span {
-    padding-bottom: 7px;
-    letter-spacing: 4px;
-    font-size: 14px;
-    padding-right: 15px;
-    text-transform: uppercase;
-  }
-  
-  .cta svg {
-    transform: translateX(-8px);
-    transition: all 0.3s ease;
-  }
-  
-  .cta:hover svg {
-    transform: translateX(0);
-  }
-  
-  .cta:active svg {
-    transform: scale(0.9);
-  }
-  
-  .hover-underline-animation {
-    position: relative;
-    color: black;
-    padding-bottom: 20px;
-  }
-  
-  .hover-underline-animation:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #000000;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-  
-  .cta:hover .hover-underline-animation:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.cta span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: black;
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

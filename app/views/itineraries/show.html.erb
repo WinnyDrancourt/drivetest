@@ -2,13 +2,14 @@
 <% content_for :meta_description, "Show of one Roadtrip" %>
 
 <body>
-  <div class="jumbotron background-image-banner d-flex align-items-center justify-content-center py-5">
-    <div class="background-sand text-dark rounded text-center p-2">
-      <h1><%= @itinerary.title %>'s roadtrip by <%= link_to "#{@itinerary.user.pseudo}",
-          user_path(@itinerary.user), class: "text-dark" %></h1>
-      <p>From <%= @itinerary.start_date.strftime("%d/%m/%Y") %> to <%= @itinerary.end_date.strftime("%d/%m/%Y") %></p>
-      <p>Total days: <%= @itinerary.total_staying_time %> days</p>
-      <!-- Likes -->
+<div class="banner">
+  <%= image_tag("baniere-fond-topo.jpg", alt:'background-jumbotron', :class => "background-image-banner") %>
+  <div class="banner-title background-sand text-dark p-1 d-flex flex-column text-center rounded p-3">
+    <h1><%= @itinerary.title %>'s roadtrip by <%= link_to "#{@itinerary.user.pseudo}",
+        user_path(@itinerary.user), class: "text-dark" %></h1>
+    <p>From <%= @itinerary.start_date.strftime("%d/%m/%Y") %> to <%= @itinerary.end_date.strftime("%d/%m/%Y") %></p>
+    <p>Total days: <%= @itinerary.total_staying_time %> days</p>
+    <!-- Likes -->
       <div class="d-flex justify-content-end align-items-center">
         <p><%= @itinerary.likes.count %> </p>
         <% if current_user %>
@@ -51,9 +52,11 @@
         <% end %>
         <% end %>
       </div>
-    </div>
+
   </div>
-  <%if current_user == @itinerary.user %>
+</div>
+  <!-- Button to add / edit / delete -->
+<%if current_user == @itinerary.user %>
     <div class="d-flex justify-content-center">
       <%= link_to "Edit Itinerary", edit_itinerary_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0 shadow m-2 btn-hover" %>
     
