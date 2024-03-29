@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   end
 
   resources :likes, only: %i[create destroy show]
+
+  resources :about_us
   # Defines the root path route ("/")
   # root "posts#index"
 end
