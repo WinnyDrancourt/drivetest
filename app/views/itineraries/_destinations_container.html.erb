@@ -1,26 +1,25 @@
-<!-- Card for travel time between User city and first destinations -->
 <body>
   <% if i == 0 %>
-<div class="card-destination background-light-grey d-flex flex-column">
-    <div class="card-destination-sm background-light-grey d-flex flex-column ">
-      <p><%= i +1 %></p>
-      <% if @user.city.nil? || @user.city= "" %>
-        <p>From ... to <%= d.city %>:</p>
-      <% else %>
-        <p>From <%= @itinerary.user.city %> to <%= d.city %>:</p>
-      <% end %>
+    <div class="card-destination background-light-grey d-flex flex-column">
+      <div class="card-destination-sm background-light-grey d-flex flex-column ">
+        <p><%= i +1 %></p>
+        <% if @user.present? && @user.city.present? %>
+          <p>From <%= @user.city %> to <%= d.city %>:</p>
+        <% else %>
+          <p>To <%= d.city %>:</p>
+        <% end %>
+      </div>
+      <%= render partial: 'destination_card', locals: { d: d, i: i }%>
     </div>
-    <%= render partial: 'destination_card', locals: { d: d, i: i }%>
-  </div>
-  <div class="card-destination background-light-grey d-flex flex-column">
-    <%= render partial: 'travel_time', locals: { d: d, i: i } %>
+    <div class="card-destination background-light-grey d-flex flex-column">
+      <%= render partial: 'travel_time', locals: { d: d, i: i } %>
   <% elsif i < @itinerary.destinations.size - 1 %>
-  <%= render partial: 'destination_card', locals: { d: d, i: i } %>
-  </div>
-  <div class="card-destination background-light-grey d-flex flex-column">
-    <%= render partial: 'travel_time', locals: { d: d, i: i } %>
+      <%= render partial: 'destination_card', locals: { d: d, i: i } %>
+    </div>
+    <div class="card-destination background-light-grey d-flex flex-column">
+      <%= render partial: 'travel_time', locals: { d: d, i: i } %>
   <% else %>
-  <%= render partial: 'destination_card', locals: { d: d, i: i } %>
-  </div>
+      <%= render partial: 'destination_card', locals: { d: d, i: i } %>
+    </div>
   <% end %>
 </body>

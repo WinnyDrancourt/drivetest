@@ -2,66 +2,66 @@
 <% content_for :meta_description, "Show of one Roadtrip" %>
 
 <body>
-<div class="banner">
-  <%= image_tag("baniere-fond-topo.jpg", alt:'background-jumbotron', :class => "background-image-banner") %>
-  <div class="banner-title background-sand text-dark p-1 d-flex flex-column text-center rounded p-3">
-    <h1><%= @itinerary.title %>'s roadtrip by <%= link_to "#{@itinerary.user.pseudo}",
-        user_path(@itinerary.user), class: "text-dark" %></h1>
-    <p>From <%= @itinerary.start_date.strftime("%d/%m/%Y") %> to <%= @itinerary.end_date.strftime("%d/%m/%Y") %></p>
-    <p>Total days: <%= @itinerary.total_staying_time %> days</p>
-    <!-- Likes -->
+  <div class="banner">
+    <%= image_tag("baniere-fond-topo.jpg", alt:'background-jumbotron', :class => "background-image-banner") %>
+    <div class="banner-title background-sand text-dark p-1 d-flex flex-column text-center rounded p-3">
+      <h1><%= @itinerary.title %>'s roadtrip by <%= link_to "#{@itinerary.user.pseudo}",
+      user_path(@itinerary.user), class: "text-dark" %></h1>
+      <p>From <%= @itinerary.start_date.strftime("%d/%m/%Y") %> to <%= @itinerary.end_date.strftime("%d/%m/%Y") %></p>
+      <p>Total days: <%= @itinerary.total_staying_time %> days</p>
       <div class="d-flex justify-content-end align-items-center">
-        <p><%= @itinerary.likes.count %> </p>
-        <% if current_user %>
-        <% if @like.nil? %>
-        <%= button_to likes_path, params: { like: {itinerary_id: @itinerary.id}}, method: :post, class: "bg-transparent border-0 checkbox" do %>
-          <div class="heart-container" title="Like">
-            <div class="svg-container">
+        <p class="m-0 px-2"> <%= @itinerary.likes.count %> </p>
+        <% if current_user && @like.nil? %>
+          <%= button_to likes_path, params: { like: {itinerary_id: @itinerary.id}}, method: :post, class: "bg-transparent border-0 checkbox" do %>
+            <div class="heart-container" title="Like">
+              <div class="svg-container">
                 <svg viewBox="0 0 24 24" class="svg-outline" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z">
-                    </path>
+                  <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z">
+                  </path>
                 </svg>
                 <svg viewBox="0 0 24 24" class="svg-filled" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z">
-                    </path>
+                  <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z">
+                  </path>
                 </svg>
                 <svg class="svg-celebrate" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="10,10 20,20"></polygon>
-                    <polygon points="10,50 20,50"></polygon>
-                    <polygon points="20,80 30,70"></polygon>
-                    <polygon points="90,10 80,20"></polygon>
-                    <polygon points="90,50 80,50"></polygon>
-                    <polygon points="80,80 70,70"></polygon>
+                  <polygon points="10,10 20,20"></polygon>
+                  <polygon points="10,50 20,50"></polygon>
+                  <polygon points="20,80 30,70"></polygon>
+                  <polygon points="90,10 80,20"></polygon>
+                  <polygon points="90,50 80,50"></polygon>
+                  <polygon points="80,80 70,70"></polygon>
                 </svg>
+              </div>
             </div>
-        </div>
+          <% end %>
+        <% elsif current_user %>
+          <%= button_to like_path(@like), method: :delete, class: "bg-transparent border-0" do %>
+            <div class="heart-container" title="Like">
+              <div class="svg-container">
+                <svg viewBox="0 0 24 24" class="svg-full" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z">
+                  </path>
+                </svg>
+              </div>
+            </div>
           <% end %>
         <% else %>
-        <%= button_to like_path(@like), method: :delete, class: "bg-transparent border-0" do %>
           <div class="heart-container" title="Like">
             <div class="svg-container">
-
-                <svg viewBox="0 0 24 24" class="svg-full" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z">
-                    </path>
-                </svg>
-
+              <svg viewBox="0 0 24 24" class="svg-full" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z">
+                </path>
+              </svg>
             </div>
-        </div>
-          <% end %>
-        <% end %>
+          </div>
         <% end %>
       </div>
-
+    </div>
   </div>
-</div>
-  <!-- Button to add / edit / delete -->
-<%if current_user == @itinerary.user %>
+  <%if current_user == @itinerary.user %>
     <div class="d-flex justify-content-center">
       <%= link_to "Edit Itinerary", edit_itinerary_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0 shadow m-2 btn-hover" %>
-    
       <%= link_to "Add destination", new_itinerary_destination_path(@itinerary), class:"btn btn-secondary background-sand text-dark border-0 shadow m-2 btn-hover" %>
-      
       <%= button_to "Delete Itinerary", itinerary_path(@itinerary), method: :delete, class:"btn btn-secondary background-sand text-dark border-0 shadow m-2 btn-hover" %>
     </div>
   <% end %>
@@ -74,9 +74,8 @@
       <% end %>
     <% end %>
   </div>
+</body>
 
-  <script type="application/ld+json">
+<script type="application/ld+json">
   <%= itinerary_jsonld(@itinerary) %>
 </script>
-
-</body>

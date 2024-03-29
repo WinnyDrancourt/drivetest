@@ -1,30 +1,27 @@
 <% content_for :title, "Edit" %>
 <% content_for :meta_description, "Edit my Roadtrip" %>
 
-
 <body>
-<main>
-<div class="background-image-banner d-flex align-items-center justify-content-center">
-<div class="background-sand text-dark p-1 d-flex flex-row rounded">
-  <h1>Edit my itinerary</h1>
-</div>
-</div>
-
-  <div class="d-flex justify-content-center h-100">
-    <div class="d-flex card card-form mt-5 background-sand shadow border-0 col-md-3 offset-md-3 col-sm-10 offset-sm-1 col-12 align-items-center ms-0">
-    <%= form_for @itinerary do |f| %>
-      <!-- Itinerary fields -->
-      <p class="mb-0 text-center">Title</p>
-      <%= f.text_field :title, class: "text-center" %>
-      <p class="mb-0 text-center">Start date</p>
-      <%= f.date_field :start_date, class: "w-100 text-center" %>
-      <p class="mb-0 text-center">End date</p>
-      <%= f.date_field :end_date, class: "w-100 text-center" %> <br>
-      
-    
-      <%= f.submit "Update Itinerary", class: "my-3 background-light-grey border-0 shadow-sm rounded w-100" %>
-    <% end %>
+  <main>
+    <div class="banner">
+      <%= image_tag("baniere-fond-topo.jpg", alt:'background-jumbotron', :class => "background-image-banner") %>
+      <div class="banner-title background-sand text-dark p-1 d-flex flex-row rounded">
+        <h1>Edit my itinerary</h1>
+      </div>
     </div>
-  </div>
-</main>
+    <div class="d-flex justify-content-center h-100">
+      <div class="d-flex card card-form mt-5 background-sand shadow border-0 col-md-3 offset-md-3 col-sm-10 offset-sm-1 col-12 align-items-center ms-0">
+        <%= form_for @itinerary do |f| %>
+          <!-- Itinerary fields -->
+          <p class="mb-0 text-center">Title</p>
+          <%= f.text_field :title, class: "text-center" %>
+          <p class="mb-0 text-center">Start date</p>
+          <%= f.date_field :start_date, class: "w-100 text-center" %>
+          <p class="mb-0 text-center">End date</p>
+          <%= f.date_field :end_date, class: "w-100 text-center" %> <br>
+          <%= f.submit "Update Itinerary", class: "my-3 background-light-grey border-0 shadow-sm rounded w-100" %>
+        <% end %>
+      </div>
+    </div>
+  </main>
 </body>

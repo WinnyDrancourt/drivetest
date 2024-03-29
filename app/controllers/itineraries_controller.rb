@@ -83,7 +83,7 @@ class ItinerariesController < ApplicationController
   end
 
   def default_dates(attr)
-    attr[:start_date] ||= default_start_date
+    attr[:start_date] = default_start_date if attr[:start_date].blank?
     attr[:end_date] ||= default_end_date(attr[:start_date], attr[:destinations_attributes])
   end
 
