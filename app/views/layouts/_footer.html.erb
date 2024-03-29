@@ -9,17 +9,24 @@
         </a>
       </div>
       <div class="col-sm-auto">
-        <a href="<%= about_us_path %>" class="text-dark">About Us</a>
+        <%= link_to "About Us", about_us_path, class: "text-dark" %>
       </div>
       <div class="col-sm-auto">
         <button id="toggleFontButton" class="border-0 background-sand rounded btn-hover">Toggle Dyslexic Font</button>
       </div>
       <div class="col-sm-auto">
-        <a href="<%= itineraries_path %>" class="text-dark">Total Roadtrips created: <%= @iti_count %></a>
+        <%= link_to "Total Roadtrips created: #{@iti_count}", itineraries_path, class: "text-dark" %>
       </div>
       <div class="col-sm-auto">
-        <a href="<%= root_path %>" class="text-dark"><%= image_tag("dreamdriver.png", :class => "icone-road")%></a>
+        <%= link_to root_path do %>
+          <%= image_tag("dreamdriver.png", class: "icone-road") %>
+        <% end %>
       </div>
+      <%if current_user && current_user.admin%>
+        <div class="col-sm-auto">
+          <%= button_to "Admin Dashboard", admin_root_path, method: :get, class: "border-0 background-sand rounded btn-hover" %>
+        </div>
+      <%end%>
     </div>
   </div>
 </footer>
