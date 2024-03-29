@@ -26,8 +26,9 @@ class ItineraryDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
+    user
+    title
     destinations
-    end_date
     likes
   ].freeze
 
@@ -35,14 +36,12 @@ class ItineraryDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
+    user
+    title
     destinations
+    start_date
     end_date
     likes
-    start_date
-    title
-    user
-    created_at
-    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :likes
     resources :users
 
-    root to: 'destinations#index'
+    root to: 'users#index'
   end
   root 'home#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }

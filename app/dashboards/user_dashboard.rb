@@ -23,6 +23,7 @@ class UserDashboard < Administrate::BaseDashboard
     zipcode: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    admin: Field::Boolean,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -32,47 +33,41 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    city
+    pseudo
     email
-    encrypted_password
+    admin
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    city
-    email
-    encrypted_password
-    first_name
-    itineraries
-    last_name
-    likes
     pseudo
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
+    email
+    admin
+    first_name
+    last_name
+    city
     zipcode
-    created_at
-    updated_at
+    itineraries
+    likes
+    encrypted_password
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    city
-    email
-    encrypted_password
-    first_name
-    itineraries
-    last_name
-    likes
     pseudo
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
+    email
+    first_name
+    last_name
+    city
     zipcode
+    itineraries
+    likes
+    admin
+    encrypted_password
   ].freeze
 
   # COLLECTION_FILTERS
