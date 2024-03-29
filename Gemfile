@@ -84,3 +84,7 @@ gem 'mapbox-sdk'
 gem 'vanilla_nested'
 
 gem 'canonical-rails', github: 'jumph4x/canonical-rails'
+
+gem 'administrate'
+
+gem "pundit", "~> 2.3"
