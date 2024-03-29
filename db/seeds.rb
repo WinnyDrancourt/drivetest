@@ -8,12 +8,10 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require 'faker'
-10.times do
-  User.create(
-    first_name: Faker::Name.first_name, 
-    last_name: Faker::Name.last_name, 
-    city: Faker::Address.city, 
-    zipcode: Faker::Address.zip_code,
-    email: Faker::Internet.email,
-    password: Faker::Internet.password)
-end
+  User.create!(
+    pseudo: "admin",
+    email: "admin@drivedreamer.com",
+    password: "w12345d+",
+    password_confirmation: 'w12345d+',
+  admin: true,
+)
