@@ -47,7 +47,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  /* font-family: Garamond, serif !important; */
+  font-family: "Quicksand", sans-serif !important;
 }
 
 footer {
