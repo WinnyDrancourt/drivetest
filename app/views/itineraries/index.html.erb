@@ -1,20 +1,18 @@
 <% content_for :title, "Roadtrips" %>
 <% content_for :meta_description, "All Roadtrips" %>
 
-<div class="jumbotron background-image-banner d-flex align-items-center justify-content-center">
-  <div class="background-sand text-dark rounded text-center w-50">
-  <h1>See all of our members' Roadtrips!</h1>
+<div class="banner">
+  <%= image_tag("baniere-fond-topo.jpg", alt: 'background-jumbotron', class: "background-image-banner") %>
+  <div class="banner-title background-sand text-dark p-1 d-flex flex-row rounded">
+    <h1>See all of our members' Roadtrips!</h1>
   </div>
-  </div>
-<div class="text-center">
-
 </div>
+
 <!-- Container itineraries card -->
 <div class="d-flex justify-content-center flex-wrap mt-5">
-    <% @itineraries.each do |i| %>
-      <div class="mb-4 me-4">
-        <%= render partial: '/layouts/itinerary', locals: { i: i}%>
-      </div>
-    <% end %>
+  <% @itineraries.each do |i| %>
+    <div class="mb-4 me-4">
+      <%= render partial: '/layouts/itinerary', locals: { i: i } %>
+    </div>
+  <% end %>
 </div>
-

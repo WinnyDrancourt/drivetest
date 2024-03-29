@@ -1,6 +1,6 @@
 .card-itinerary {
     border-radius: 10px;
-    width: 250px;
+    width: 300px;
     min-width: 250px;
   }
   
@@ -17,6 +17,10 @@
     width: 300px;
     min-width: 250px;
     height: 100px !important;
+  }
+
+  .gap-class {
+    gap: 10px;
   }
 
   .button-card {
