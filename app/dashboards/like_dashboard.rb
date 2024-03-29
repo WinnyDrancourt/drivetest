@@ -22,9 +22,8 @@ class LikeDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    itinerary
     user
-    created_at
+    itinerary
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -33,8 +32,6 @@ class LikeDashboard < Administrate::BaseDashboard
     id
     itinerary
     user
-    created_at
-    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES

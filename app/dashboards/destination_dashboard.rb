@@ -37,8 +37,6 @@ class DestinationDashboard < Administrate::BaseDashboard
     itinerary
     notes
     staying_time
-    created_at
-    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
