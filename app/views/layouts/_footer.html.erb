@@ -1,4 +1,4 @@
-<footer class="footer py-3 border-top">
+<div class="footer py-3 border-top">
   <div class="container">
     <div class="row d-sm-flex justify-content-between align-items-center">
       <div class="col-sm-auto">
@@ -19,7 +19,7 @@
       </div>
       <div class="col-sm-auto">
         <%= link_to root_path do %>
-          <%= image_tag("dreamdriver.png", class: "icone-road") %>
+          <%= image_tag("dreamdriver.png", class: "icone-road", alt: "logo-dreamdriver") %>
         <% end %>
       </div>
       <%if current_user && current_user.admin%>
@@ -29,4 +29,4 @@
       <%end%>
     </div>
   </div>
-</footer>
+</div>

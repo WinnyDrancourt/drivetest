@@ -1,35 +1,38 @@
 <% content_for :title, "Home Page" %>
 <% content_for :meta_description, "Home page of DreamDriver" %>
 
-<body>
   <main>
     <div class="banner-jumbotron">
-      <%= image_tag("view-for-jumbotron.jpg", alt:'background-jumbotron', :class => "background-image-banner") %>
-      <div class="banner-title background-sand text-dark p-1 d-flex flex-row rounded">
-        <div class="m-2">
-          <button class="cta">
-            <span class="hover-underline-animation"><%= link_to "Create the roadtrip of your dreams !", new_itinerary_path, class: "text-dark text-decoration-none" %></span>
-            <svg
-            id="arrow-horizontal"
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="10"
-            viewBox="0 0 46 16"
-            >
-              <path
-              id="Path_10"
-              data-name="Path 10"
-              d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-              transform="translate(30)"
-              ></path>
-            </svg>
-          </button>
-        </div>
+    <%= image_tag("view-for-jumbotron.jpg", alt:'background-jumbotron', :class => "background-image-banner") %>
+    <div class="banner-title background-sand text-dark p-1 d-flex flex-row rounded">
+      <div class="m-2">    
+        <div class="cta">
+        <span class="hover-underline-animation"><%= link_to "Create the roadtrip of your dreams !", new_itinerary_path, class: "text-dark text-decoration-none" %></span>
+        <svg
+          id="arrow-horizontal"
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="10"
+          viewBox="0 0 46 16"
+        >
+          <path
+            id="Path_10"
+            data-name="Path 10"
+            d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+            transform="translate(30)"
+          ></path>
+        </svg>
       </div>
+    </div>
     </div>
     <div class="d-flex justify-content-center my-2">
       <h1>Our best Roadtrips ! </h1>
     </div>
+
+        <!-- Container itineraries card -->
+        <div class="d-flex justify-content-center my-2">
+        <h1>Our best Roadtrips ! </h1>
+        </div>
     <div class="container-fluid">
       <div class="row">
         <% @itineraries.each do |i| %>
@@ -41,4 +44,4 @@
     </div>
     <%= render partial: 'presentation' %>
   </main>
-</body>
+

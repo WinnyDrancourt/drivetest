@@ -19,7 +19,7 @@
       </ul>
       <div class="d-flex justify-content-center align-items-center flex-grow-1">
         <%= link_to root_path, class: "navbar-brand text-center mx-auto" do %> <!-- Added mx-auto class to center the image -->
-          <%= image_tag("dreamdriver.png", :class => "logo-website") %>
+          <%= image_tag("dreamdriver.png", :class => "logo-website", :alt => "logo dreamdriver") %>
         <% end %>
       </div>
       <% if user_signed_in? %>
