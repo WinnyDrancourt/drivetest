@@ -1,26 +1,20 @@
-
 <div class ='columns'>
   <div class="field text-center">
-    <%= f.text_field :city, class: "field-new-iti text-center w-100", placeholder: "Step"  %>
+    <%= f.text_field :city, class: "field-new-iti text-center w-100", placeholder: "Step (City)"  %>
   </div>
-
   <div class="field text-center">
     <%= f.text_field :notes, class: "field-new-iti text-center w-100", placeholder: "Notes"  %>
   </div>
-
   <div class="field text-center">
     <%= f.label :Duree, "Duration in day :"%><br>
     <%= f.number_field :staying_time, in: 1..31, step: 1, class: "field-new-iti w-50 text-center"%>
   </div>
-
-  
+  <%# link_to_remove_nested(f, link_text: 'Destroy', fields_wrapper_selector: '.columns') %>
+  <%#if params[:dynamic_form] == '1' %>
     <%# link_to_remove_nested(f, link_text: 'Destroy', fields_wrapper_selector: '.columns') %>
-
-  <% if params[:dynamic_form] == '1' %>
-    <%= link_to_remove_nested(f, link_text: 'Destroy', fields_wrapper_selector: '.columns') %>
-  <% else %>
-    <% if f.object.persisted? %>
-        <%= f.input :_destroy, as: :boolean, label: 'Destroy' %>
-    <% end %>
-  <% end %>
+  <%#else %>
+    <%#if f.object.persisted? %>
+      <%# f.input :_destroy, as: :boolean, label: 'Destroy' %>
+    <%#end %>
+  <%#end %>
 </div>

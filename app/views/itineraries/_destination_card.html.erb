@@ -1,19 +1,18 @@
 <body>
-<div class="rounded-bottom background-light-grey d-flex flex-column border-top">
-  <div id="cityMapContainer_<%= i %>">
-    <div class="city_<%= i %>"><p><%= @coordinates[i] %></p></div>
-  </div>
+  <div class="rounded-bottom background-light-grey d-flex flex-column border-top">
+    <div id="cityMapContainer_<%= i %>">
+      <div class="city_<%= i %>"><p><%= @coordinates[i] %></p></div>
+    </div>
     <h6 class="fw-bold">About destination: </h6>
     <p>City: <%= d.city %></p> 
     <p class="text-break">Notes: <%= d.notes %></p>
     <p>Staying time: <%= d.staying_time %></p>
-  <% if current_user == @itinerary.user%>  
-    <div class="d-flex">
-    <%= link_to "Edit Destination", edit_itinerary_destination_path(@itinerary, @itinerary.destinations[i]), class:"btn btn-secondary background-sand text-dark border-0 btn-hover flex-grow-1 aligns-items-center"%>
-    <%= button_to "X", itinerary_destination_path(@itinerary, @itinerary.destinations[i]), method: :delete, class:"btn btn-secondary bg-danger text-dark border-0 shadow btn-hover" %>
-    </div>
-  <%end%>
- </div>
-
-<%= javascript_include_tag 'static_map' %>
+    <% if current_user == @itinerary.user%>  
+      <div class="d-flex">
+        <%= link_to "Edit Destination", edit_itinerary_destination_path(@itinerary, @itinerary.destinations[i]), class:"btn btn-secondary background-sand text-dark border-0 btn-hover flex-grow-1 aligns-items-center"%>
+        <%= button_to "X", itinerary_destination_path(@itinerary, @itinerary.destinations[i]), method: :delete, class:"btn btn-secondary bg-danger text-dark border-0 shadow btn-hover" %>
+      </div>
+    <%end%>
+  </div>
 </body>
+<%= javascript_include_tag 'static_map' %>

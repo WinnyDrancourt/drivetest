@@ -3,7 +3,11 @@
   <div class="card-destination background-light-grey d-flex flex-column">
     <div class="card-destination-sm background-light-grey d-flex flex-column ">
       <p><%= i +1 %></p>
-      <p>From <%= @itinerary.user.city %> to <%= d.city %>:</p>
+      <% if @user.present? && @user.city.present? %>
+        <p>From <%= @user.city %> to <%= d.city %>:</p>
+      <% else %>
+        <p>To <%= d.city %>:</p>
+      <% end %>
     </div>
     <%= render partial: 'destination_card', locals: { d: d, i: i }%>
   </div>

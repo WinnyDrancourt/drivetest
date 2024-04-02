@@ -1,46 +1,39 @@
 <% content_for :title, "Edit destination" %>
 <% content_for :meta_description, "Edit my destination" %>
 
-<div class="background-image-banner d-flex align-items-center justify-content-center">
-<div class="background-sand text-dark p-1 d-flex flex-row rounded">
-  <h1>Edit my destination</h1>
-</div>
-</div>
-
-
 <body>
-<main>
-  <div class="d-flex justify-content-center h-100">
-    <div class="d-flex card card-form mt-5 background-sand shadow border-0 col-md-3 offset-md-3 col-sm-10 offset-sm-1 col-12 align-items-center ms-0">
-    <%= form_with(model: [@itinerary, @destination], local: true) do |form| %>
-      <% if @destination.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@destination.errors.count, "error") %> prohibited this destination from being saved:</h2>
-    
-          <ul>
-          <% @destination.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-    
-
-      <p class="text-center mb-0">City</p>
-        <%= form.text_field :city, class: "text-center" %>
-    
-        <p class="text-center mb-0">Notes</p>
-        <%= form.text_area :notes, class: "w-100 text-center" %>
-
-        <p class="text-center mb-0">Staying time</p>
-        <%= form.number_field :staying_time, class: "text-center" %>
-    
-      <div class="actions">
-      <%= form.submit class: "w-100 my-3 rounded background-light-grey border-0 shadow-sm" %>
+  <main>
+    <div class="banner">
+      <%= image_tag("baniere-fond-topo.jpg", alt:'background-jumbotron', :class => "background-image-banner") %>
+      <div class="banner-title background-sand text-dark p-1 d-flex flex-row rounded">
+        <h1>Edit my destination</h1>
       </div>
-    <% end %>
     </div>
-  </div>
-</main>
+    <div class="d-flex justify-content-center h-100">
+      <div class="d-flex card card-form mt-5 background-sand shadow border-0 col-md-3 offset-md-3 col-sm-10 offset-sm-1 col-12 align-items-center ms-0">
+        <%= form_with(model: [@itinerary, @destination], local: true) do |form| %>
+          <% if @destination.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@destination.errors.count, "error") %> prohibited this destination from being saved:</h2>
+              <ul>
+                <% @destination.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <p class="text-center mb-0">City</p>
+          <%= form.text_field :city, class: "text-center" %>
+          <p class="text-center mb-0">Notes</p>
+          <%= form.text_area :notes, class: "w-100 text-center" %>
+          <p class="text-center mb-0">Staying time</p>
+          <%= form.number_field :staying_time, class: "text-center" %>
+          <div class="actions">
+            <%= form.submit class: "w-100 my-3 rounded background-light-grey border-0 shadow-sm" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </main>
 </body>
 
