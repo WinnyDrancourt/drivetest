@@ -31,6 +31,7 @@
     background: none;
     position: relative;
     padding-bottom: 2em;
+    padding-top: 0.8em;
     cursor: pointer;
   }
   
@@ -62,7 +63,7 @@
   }
   
   .button-card .clone > *,
-  .button-card .text > * {
+  .button-card .text-button > * {
     opacity: 1;
     font-size: 1.3rem;
     transition: 0.2s;
@@ -79,7 +80,7 @@
     transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
   }
   
-  .button-card:hover .text > * {
+  .button-card:hover .text-button > * {
     opacity: 1;
     transform: translateY(-60px);
     transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
