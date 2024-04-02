@@ -2,31 +2,25 @@
 <% content_for :meta_description, "My user profile page" %>
 
 <div class="banner">
-<%= image_tag("baniere-fond-topo.jpg", alt:'background-jumbotron', :class => "background-image-banner") %>
-<div class="banner-title background-sand text-dark p-1 d-flex flex-row rounded">
-  <h1><%= @user.pseudo %>'s Profile</h1>
+  <%= image_tag("baniere-fond-topo.jpg", alt:'background-jumbotron', :class => "background-image-banner") %>
+  <div class="banner-title background-sand text-dark p-1 d-flex flex-row rounded">
+    <h1><%= @user.pseudo %>'s Profile</h1>
+  </div>
 </div>
-</div>
+
 <div class="d-flex flex-row flex-wrap w-100 justify-content-center">
-  <!-- User card -->
   <div class="col-2 mx-5 mt-2 d-flex flex-column align-items-center text-center">
-
     <h2>My Infos</h2>
-
     <%= render partial: 'user_card'%>
   </div>
-
   <div class="col mx-5 mt-2">
-    <!-- Container itineraries card -->
     <div class="container-fluid">
       <div class="text-center">
-
         <%if current_user == User.find_by(id: params[:id])%>
           <h2>My RoadTrips</h2>
         <% else %>
           <h2><%= @user.pseudo %> RoadTrips</h2>
         <% end %>
-
       </div>
       <div class="row">
         <% @user.itineraries.each do |i| %>
@@ -38,18 +32,17 @@
     </div>
   </div>
 </div>
+
 <%if current_user == User.find_by(id: params[:id])%>
   <div class="container-fluid">
     <div class="text-center">
-
       <h2>Liked Roadtrips: <%=@other_user_likes.count %></h2>
-
     </div>
     <div class="row">
       <% @other_user_likes.each do |l| %>
         <%i = l.itinerary%>
         <div class="col d-flex flex-wrap justify-content-center mb-2 me-2">
-        <%= render partial: '/layouts/itinerary', locals: { i: i}%>
+          <%= render partial: '/layouts/itinerary', locals: { i: i}%>
         </div>
       <% end %>
     </div>

@@ -1,17 +1,14 @@
-
 <div class="field">
-    <%= f.text_field :title, class: "field-new-iti text-center w-100", placeholder: "Title" %>
-  </div>
+  <%= f.text_field :title, class: "field-new-iti text-center w-100", placeholder: "Title" %>
+</div>
 <div class="field">
-    <%= f.label :start_date, "Start date (opt) :" %><br>
-    <%= f.date_field :start_date, class: "field-new-iti w-100 text-center"%>
-  </div>
-
-
+  <%= f.label :start_date, "Start date (opt) :" %><br>
+  <%= f.date_field :start_date, class: "field-new-iti w-100 text-center"%>
+</div>
 <%= f.fields_for :destinations do |fd| %>
   <div>
-  <%= render partial: 'destination_fields', locals: { f: fd } %>
-</div>
+    <%= render partial: 'destination_fields', locals: { f: fd } %>
+  </div>
 <% end %>
 <div>
   <% if params[:dynamic_form] == '1' %>
@@ -19,6 +16,4 @@
   <% else %>
     <%= button_tag 'Add destination', type: 'submit', name: 'commit', value: 'add_destination', class: "background-sand border-0 rounded mt-3 btn-hover" %>
   <% end %>
-  </div>
-
-
+</div>

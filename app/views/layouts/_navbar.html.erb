@@ -24,7 +24,6 @@
       </div>
       <% if user_signed_in? %>
         <div class="btn-group dropdown">
-          <!-- Dropdown à gauche -->
           <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-left background-sand text-dark border-0  btn-hover ps-4" data-bs-toggle="dropdown" aria-expanded="false">
             Profile / Logout
           </button>
@@ -35,9 +34,8 @@
         </div>
       <% else %>
         <div class="btn-group dropstart">
-          <!-- Dropdown à gauche -->
           <button type="button" class="btn btn-secondary background-sand text-dark border-0 dropdown-toggle btn-hover" data-bs-toggle="dropdown" aria-expanded="false">
-            Login/Signup
+          Login/Signup
           </button>
           <ul class="dropdown-menu dropdown-menu-start">
             <li><%= link_to "Sign in", new_user_session_path, class: "dropdown-item"%></li>
@@ -48,4 +46,3 @@
     </div>
   </div>
 </nav>
-

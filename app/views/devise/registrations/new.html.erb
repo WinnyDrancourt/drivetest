@@ -6,24 +6,18 @@
     <p class="form-title">Sign up</p>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages" , resource: resource %>
-
       <div class="field my-2">
         <%= f.text_field :pseudo, autofocus: true, class: "form-control text-center", placeholder: "Pseudo" %>
       </div>
-
-        
       <div class="field my-2">
         <%= f.email_field :email, autocomplete: "email", autofocus: true, class: "form-control text-center", placeholder: "Email"  %>
       </div>
-
       <div class="field my-2">
         <%= f.password_field :password, autocomplete: "new-password", autofocus: true, class: "form-control text-center", placeholder: "Password (#{@minimum_password_length} characters minimum)"  %>
       </div>
-
       <div class="field my-2">
         <%= f.password_field :password_confirmation, autocomplete: "new-password", autofocus: true, class: "form-control text-center", placeholder: "Password Confirmation"  %>
       </div>
-
       <div class="actions d-flex justify-content-center">
         <%= f.submit "Sign up", class: "background-light-grey rounded shadow border-0 btn-hover w-50 py-1" %>
       </div>
@@ -31,4 +25,3 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
-

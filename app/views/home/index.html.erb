@@ -1,10 +1,12 @@
 <% content_for :title, "Home Page" %>
 <% content_for :meta_description, "Home page of DreamDriver" %>
+
   <main>
     <div class="banner-jumbotron">
     <%= image_tag("view-for-jumbotron.jpg", alt:'background-jumbotron', :class => "background-image-banner") %>
     <div class="banner-title background-sand text-dark p-1 d-flex flex-row rounded">
-      <div class="m-2">    <div class="cta">
+      <div class="m-2">    
+        <div class="cta">
         <span class="hover-underline-animation"><%= link_to "Create the roadtrip of your dreams !", new_itinerary_path, class: "text-dark text-decoration-none" %></span>
         <svg
           id="arrow-horizontal"
@@ -20,9 +22,13 @@
             transform="translate(30)"
           ></path>
         </svg>
-      </div></div>
+      </div>
     </div>
     </div>
+    <div class="d-flex justify-content-center my-2">
+      <h1>Our best Roadtrips ! </h1>
+    </div>
+
         <!-- Container itineraries card -->
         <div class="d-flex justify-content-center my-2">
         <h1>Our best Roadtrips ! </h1>
@@ -36,6 +42,6 @@
         <% end %>
       </div>
     </div>
-
     <%= render partial: 'presentation' %>
   </main>
+
