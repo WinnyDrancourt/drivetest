@@ -24,23 +24,23 @@
     <!-- End bootstrap -->
       <%= javascript_include_tag 'fontdys' %>
 
-      <%= canonical_tag -%>
+      <%= canonical_tag-%>
 
       <title><%= yield :title %> | Dreamdriver</title>
       <meta name="description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : 'Description par défaut de la page' %>">
       <%= favicon_link_tag 'favicon.png' %>
   </head>
 
-  <header>
-    <%= render "layouts/navbar" %>
-  </header>
-
   <body>
+    <header>
+      <%= render "layouts/navbar" %>
+    </header>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <%= yield %>
-  </body>
 
-  <footer>
-    <%= render "layouts/footer" %>
-  </footer>
+    <footer>
+      <%= render "layouts/footer" %>
+    </footer>
+  </body>
 </html>
